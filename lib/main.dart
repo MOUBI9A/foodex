@@ -2,17 +2,17 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:food_delivery/common/color_extension.dart';
-import 'package:food_delivery/common/locator.dart';
-// import 'package:food_delivery/common/service_call.dart';  // Commented for bypass
-import 'package:food_delivery/view/login/welcome_view.dart'; // Needed for routing
-import 'package:food_delivery/view/main_tabview/main_tabview.dart';
-import 'package:food_delivery/view/user_type_selector_view.dart';
-// import 'package:food_delivery/view/on_boarding/startup_view.dart';  // Commented for bypass
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/core/utils/locator.dart';
+// import 'package:food_delivery/core/service_call.dart';  // Commented for bypass
+import 'package:food_delivery/presentation/pages/login/welcome_view.dart'; // Needed for routing
+import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
+import 'package:food_delivery/presentation/pages/user_type_selector_view.dart';
+// import 'package:food_delivery/presentation/pages/on_boarding/startup_view.dart';  // Commented for bypass
 import 'package:shared_preferences/shared_preferences.dart';
 
 // import 'common/globs.dart';  // Commented for bypass
-import 'common/my_http_overrides.dart';
+import 'core/network/my_http_overrides.dart';
 
 SharedPreferences? prefs;
 void main() async {

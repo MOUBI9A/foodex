@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/view/more/about_us_view.dart';
-import 'package:food_delivery/view/more/inbox_view.dart';
-import 'package:food_delivery/view/more/payment_details_view.dart';
-import 'package:food_delivery/view/wallet/wallet_view.dart';
+import 'package:food_delivery/presentation/pages/more/about_us_view.dart';
+import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
+import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
+import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
 
-import '../../common/color_extension.dart';
-import '../../common/service_call.dart';
+import '../../../../../core/theme/color_extension.dart';
+import '../../../../../core/network/service_call.dart';
 import 'my_order_view.dart';
 import 'notification_view.dart';
 

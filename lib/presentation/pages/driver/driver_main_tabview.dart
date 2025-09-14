@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/view/driver/driver_home_view.dart';
-import 'package:food_delivery/view/driver/driver_orders_view.dart';
-import 'package:food_delivery/view/driver/driver_earnings_view.dart';
-import 'package:food_delivery/view/driver/driver_profile_view.dart';
-import '../../common_widget/tab_button.dart';
+import 'package:food_delivery/presentation/pages/driver/driver_home_view.dart';
+import 'package:food_delivery/presentation/pages/driver/driver_orders_view.dart';
+import 'package:food_delivery/presentation/pages/driver/driver_earnings_view.dart';
+import 'package:food_delivery/presentation/pages/driver/driver_profile_view.dart';
+import '../../../../widgets/tab_button.dart';
 
 class DriverMainTabView extends StatefulWidget {
   const DriverMainTabView({super.key});

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
-import 'package:food_delivery/common/extension.dart';
-import 'package:food_delivery/common_widget/round_button.dart';
-import 'package:food_delivery/view/login/otp_view.dart';
-import '../../common/globs.dart';
-import '../../common/service_call.dart';
-import '../../common_widget/round_textfield.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/core/utils/extensions.dart';
+import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
+import 'package:food_delivery/presentation/pages/login/otp_view.dart';
+import '../../../../../core/constants/globs.dart';
+import '../../../../../core/network/service_call.dart';
+import '../../../../../widgets/round_textfield.dart';
 
 class ResetPasswordView extends StatefulWidget {
   const ResetPasswordView({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../common/color_extension.dart';
-import '../../common_widget/round_textfield.dart';
+import '../../../../core/theme/color_extension.dart';
+import '../../../../../widgets/round_textfield.dart';
 import '../more/my_order_view.dart';
 import 'menu_items_view.dart';
 

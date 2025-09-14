@@ -4,8 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../common/color_extension.dart';
-import '../../common_widget/round_textfield.dart';
+import '../../../../../core/theme/color_extension.dart';
+import '../../../../../widgets/round_textfield.dart';
 
 class ChangeAddressView extends StatefulWidget {
   const ChangeAddressView({super.key});

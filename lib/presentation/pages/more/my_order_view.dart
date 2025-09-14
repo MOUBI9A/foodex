@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
-import 'package:food_delivery/common_widget/round_button.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
 
 import 'checkout_view.dart';
 

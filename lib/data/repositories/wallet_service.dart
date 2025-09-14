@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/user_models.dart';
-import '../common/logger.dart';
+import '../../core/utils/logger.dart';
 
 class WalletService {
   static final WalletService _instance = WalletService._internal();

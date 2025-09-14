@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/view/main_tabview/main_tabview.dart';
+import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
 
 // Imports commented out for bypass testing:
-// import 'package:food_delivery/view/login/welcome_view.dart';
-// import '../../common/globs.dart';
+// import 'package:food_delivery/presentation/pages/login/welcome_view.dart';
+// import '../../../../core/constants/globs.dart';
 
 class StartupView extends StatefulWidget {
   const StartupView({super.key});

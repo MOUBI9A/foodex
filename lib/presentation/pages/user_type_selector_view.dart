@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
-import 'package:food_delivery/view/main_tabview/main_tabview.dart';
-import 'package:food_delivery/view/driver/driver_main_tabview.dart';
-import 'package:food_delivery/view/chef/chef_main_tabview.dart';
-import 'package:food_delivery/services/wallet_service.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
+import 'package:food_delivery/presentation/pages/driver/driver_main_tabview.dart';
+import 'package:food_delivery/presentation/pages/chef/chef_main_tabview.dart';
+import 'package:food_delivery/data/repositories/wallet_service.dart';
 
 class UserTypeSelectorView extends StatelessWidget {
   const UserTypeSelectorView({super.key});

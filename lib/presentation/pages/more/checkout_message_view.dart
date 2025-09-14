@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common_widget/round_button.dart';
+import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
 
-import '../../common/color_extension.dart';
+import '../../../../../core/theme/color_extension.dart';
 
 class CheckoutMessageView extends StatefulWidget {
   const CheckoutMessageView({super.key});

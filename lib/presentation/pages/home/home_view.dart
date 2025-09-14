@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
-import 'package:food_delivery/common_widget/round_textfield.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/presentati../../../../widgets/round_textfield.dart';
 
-import '../../common/globs.dart';
-import '../../common/service_call.dart';
-import '../../common_widget/category_cell.dart';
-import '../../common_widget/most_popular_cell.dart';
-import '../../common_widget/popular_resutaurant_row.dart';
-import '../../common_widget/recent_item_row.dart';
-import '../../common_widget/view_all_title_row.dart';
+import '../../../../core/constants/globs.dart';
+import '../../../../core/network/service_call.dart';
+import '../../../../widgets/category_cell.dart';
+import '../../../../widgets/most_popular_cell.dart';
+import '../../../../widgets/popular_resutaurant_row.dart';
+import '../../../../widgets/recent_item_row.dart';
+import '../../../../widgets/view_all_title_row.dart';
 import '../more/my_order_view.dart';
 
 class HomeView extends StatefulWidget {

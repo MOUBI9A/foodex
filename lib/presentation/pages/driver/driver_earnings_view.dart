@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
 
 class DriverEarningsView extends StatefulWidget {
   const DriverEarningsView({super.key});

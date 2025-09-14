@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../common/color_extension.dart';
-import '../../models/user_models.dart';
-import '../../services/wallet_service.dart';
-import '../../common_widget/round_button.dart';
+import '../../../../core/theme/color_extension.dart';
+import '../../data/models/user_models.dart';
+import '../../data/repositories/wallet_service.dart';
+import '../../../../../widgets/round_button.dart';
 
 class WalletView extends StatefulWidget {
   const WalletView({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
 
 class ChefProfileView extends StatefulWidget {
   const ChefProfileView({super.key});

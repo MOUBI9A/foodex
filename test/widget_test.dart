@@ -8,8 +8,8 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:food_delivery/main.dart';
-import 'package:food_delivery/common/locator.dart';
-import 'package:food_delivery/view/user_type_selector_view.dart';
+import 'package:food_delivery/core/locator.dart';
+import 'package:food_delivery/presentation/pages/user_type_selector_view.dart';
 
 void main() {
   // Setup services for testing

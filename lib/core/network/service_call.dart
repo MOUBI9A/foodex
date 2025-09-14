@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:food_delivery/common/globs.dart';
-import 'package:food_delivery/common/locator.dart';
+import 'package:food_delivery/core/constants/globs.dart';
+import 'package:food_delivery/core/utils/locator.dart';
 import 'package:http/http.dart' as http;
 
 typedef ResSuccess = Future<void> Function(Map<String, dynamic>);

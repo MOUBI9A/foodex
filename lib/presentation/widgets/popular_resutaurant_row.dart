@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../common/color_extension.dart';
+import '../../core/theme/color_extension.dart';
 
 class PopularRestaurantRow extends StatelessWidget {
   final Map pObj;

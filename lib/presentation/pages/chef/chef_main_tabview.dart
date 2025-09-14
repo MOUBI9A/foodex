@@ -4,7 +4,7 @@ import 'chef_menu_view.dart';
 import 'chef_orders_view.dart';
 import 'chef_earnings_view.dart';
 import 'chef_profile_view.dart';
-import '../../common_widget/tab_button.dart';
+import '../../../../widgets/tab_button.dart';
 
 class ChefMainTabView extends StatefulWidget {
   const ChefMainTabView({super.key});
