@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_icon_button.dart';
+import 'package:food_delivery/presentation/widgets/round_icon_button.dart';
 
-import '../../../../core/theme/color_extension.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
 import '../more/my_order_view.dart';
 
 class ItemDetailsView extends StatefulWidget {

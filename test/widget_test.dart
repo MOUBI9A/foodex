@@ -8,7 +8,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:food_delivery/main.dart';
-import 'package:food_delivery/core/locator.dart';
+import 'package:food_delivery/core/utils/locator.dart';
 import 'package:food_delivery/presentation/pages/user_type_selector_view.dart';
 
 void main() {

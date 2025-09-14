@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
+import 'package:food_delivery/presentation/widgets/round_button.dart';
 import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
 
 class OnBoardingView extends StatefulWidget {

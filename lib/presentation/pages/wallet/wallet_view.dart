@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../core/theme/color_extension.dart';
-import '../../data/models/user_models.dart';
-import '../../data/repositories/wallet_service.dart';
-import '../../../../../widgets/round_button.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/data/models/user_models.dart';
+import 'package:food_delivery/data/repositories/wallet_service.dart';
+import 'package:food_delivery/presentation/widgets/round_button.dart';
 
 class WalletView extends StatefulWidget {
   const WalletView({super.key});

@@ -4,8 +4,8 @@ import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
 import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
 import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
 
-import '../../../../../core/theme/color_extension.dart';
-import '../../../../../core/network/service_call.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/core/network/service_call.dart';
 import 'my_order_view.dart';
 import 'notification_view.dart';
 

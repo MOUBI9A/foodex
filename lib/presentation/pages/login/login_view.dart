@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/core/utils/extensions.dart';
 import 'package:food_delivery/core/constants/globs.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
+import 'package:food_delivery/presentation/widgets/round_button.dart';
 import 'package:food_delivery/presentation/pages/login/rest_password_view.dart';
 import 'package:food_delivery/presentation/pages/login/sing_up_view.dart';
 import 'package:food_delivery/presentation/pages/on_boarding/on_boarding_view.dart';
 
-import '../../../../../core/network/service_call.dart';
-import '../../../../widgets/round_icon_button.dart';
-import '../../../../../widgets/round_textfield.dart';
+import 'package:food_delivery/core/network/service_call.dart';
+import 'package:food_delivery/presentation/widgets/round_icon_button.dart';
+import 'package:food_delivery/presentation/widgets/round_textfield.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

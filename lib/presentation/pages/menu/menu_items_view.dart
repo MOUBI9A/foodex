@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_textfield.dart';
+import 'package:food_delivery/presentation/widgets/round_textfield.dart';
 
-import '../../../../../widgets/menu_item_row.dart';
+import 'package:food_delivery/presentation/widgets/menu_item_row.dart';
 import '../more/my_order_view.dart';
 import 'item_details_view.dart';
 

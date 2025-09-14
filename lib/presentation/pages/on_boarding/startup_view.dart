@@ -3,7 +3,7 @@ import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart'
 
 // Imports commented out for bypass testing:
 // import 'package:food_delivery/presentation/pages/login/welcome_view.dart';
-// import '../../../../core/constants/globs.dart';
+// import 'package:food_delivery/core/constants/globs.dart';
 
 class StartupView extends StatefulWidget {
   const StartupView({super.key});

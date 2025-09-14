@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
+import 'package:food_delivery/presentation/widgets/round_button.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../../../core/theme/color_extension.dart';
-import '../../../../../widgets/round_textfield.dart';
+import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/presentation/widgets/round_textfield.dart';
 import '../more/my_order_view.dart';
 
 class ProfileView extends StatefulWidget {

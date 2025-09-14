@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/core/utils/extensions.dart';
-import 'package:food_delivery/presentati../../../../widgets/round_button.dart';
+import 'package:food_delivery/presentation/widgets/round_button.dart';
 import 'package:food_delivery/presentation/pages/login/new_password_view.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 
-import '../../../../../core/constants/globs.dart';
-import '../../../../../core/network/service_call.dart';
+import 'package:food_delivery/core/constants/globs.dart';
+import 'package:food_delivery/core/network/service_call.dart';
 
 class OTPView extends StatefulWidget {
   final String email;
