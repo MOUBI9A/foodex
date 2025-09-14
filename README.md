@@ -1,16 +1,23 @@
 # 🍽️ FoodEx - Community Food Marketplace
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.24+-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-3.4+-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.32.5+-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.8.1+-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Android](https://img.shields.io/badge/Android-Ready-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
-[![iOS](https://img.shields.io/badge/iOS-Ready-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
-[![Web](https://img.shields.io/badge/Web-PWA-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![iOS](https://img.shields.io/badge/iOS-Tested-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
+[![Web](https://img.shields.io/badge/Web-Live%20Demo-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://web.dev/progressive-web-apps/)
 [![macOS](https://img.shields.io/badge/macOS-Native-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/macos/)
 [![Windows](https://img.shields.io/badge/Windows-Native-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/windows/apps/)
 [![Linux](https://img.shields.io/badge/Linux-Native-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://docs.flutter.dev/development/platform-integration/linux)
 
 > **A beautiful, multi-platform food delivery app connecting customers with local home chefs**  
-> *Designed with Moroccan-inspired aesthetics and modern Flutter architecture*
+> *Designed with Moroccan-inspired aesthetics and modern Flutter Clean Architecture*
+
+## 📋 Documentation
+
+- 📖 [Project Structure](docs/PROJECT_STRUCTURE.md) - Detailed architecture overview
+- 🚀 [Features Documentation](docs/FEATURES_DOCUMENTATION.md) - Complete feature list
+- 📊 [Final Documentation](docs/FINAL_DOCUMENTATION.md) - Project completion summary
+- 🚀 [Deployment Guide](docs/DEPLOYMENT.md) - Platform deployment instructions
 
 ## ✨ Features
 
@@ -35,8 +42,8 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Flutter 3.24+ 
-- Dart 3.4+
+- Flutter 3.32.5+ 
+- Dart 3.8.1+
 - Your favorite IDE (VS Code, Android Studio, etc.)
 
 ### Installation
@@ -63,7 +70,7 @@ flutter run
 flutter run -d android
 ```
 
-**iOS:**
+**iOS:** (Tested ✅)
 ```bash
 flutter run -d ios
 ```
@@ -71,6 +78,12 @@ flutter run -d ios
 
 <details>
 <summary>🌐 <strong>Web Development</strong></summary>
+
+**Web:** (Live Demo Available ✅)
+```bash
+flutter run -d chrome
+```
+</details>
 
 ```bash
 # Development
