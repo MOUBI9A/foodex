@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/view/driver/driver_home_view.dart';
 import 'package:food_delivery/view/driver/driver_orders_view.dart';
 import 'package:food_delivery/view/driver/driver_earnings_view.dart';

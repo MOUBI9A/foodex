@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/user_models.dart';
+import '../common/logger.dart';
 
 class WalletService {
   static final WalletService _instance = WalletService._internal();
@@ -47,7 +48,8 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      print('Transaction created: ${transaction.id}');
+      Logger.info('Transaction created: ${transaction.id}',
+          tag: 'WalletService');
 
       return true;
     } catch (e) {
@@ -79,7 +81,8 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      print('Payment transaction created: ${transaction.id}');
+      Logger.info('Payment transaction created: ${transaction.id}',
+          tag: 'WalletService');
 
       return true;
     } catch (e) {
@@ -109,7 +112,8 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      print('Received payment transaction created: ${transaction.id}');
+      Logger.info('Received payment transaction created: ${transaction.id}',
+          tag: 'WalletService');
 
       return true;
     } catch (e) {

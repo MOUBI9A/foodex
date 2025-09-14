@@ -56,7 +56,7 @@ class _AddCardViewState extends State<AddCardView> {
               ],
             ),
             Divider(
-              color: TColor.secondaryText.withOpacity(0.4),
+              color: TColor.secondaryText.withValues(alpha: 0.4),
               height: 1,
             ),
             const SizedBox(

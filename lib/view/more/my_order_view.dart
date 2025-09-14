@@ -190,7 +190,7 @@ class _MyOrderViewState extends State<MyOrderView> {
                   separatorBuilder: ((context, index) => Divider(
                         indent: 25,
                         endIndent: 25,
-                        color: TColor.secondaryText.withOpacity(0.5),
+                        color: TColor.secondaryText.withValues(alpha: 0.5),
                         height: 1,
                       )),
                   itemBuilder: ((context, index) {
@@ -256,7 +256,7 @@ class _MyOrderViewState extends State<MyOrderView> {
                       ],
                     ),
                     Divider(
-                      color: TColor.secondaryText.withOpacity(0.5),
+                      color: TColor.secondaryText.withValues(alpha: 0.5),
                       height: 1,
                     ),
                     const SizedBox(
@@ -309,7 +309,7 @@ class _MyOrderViewState extends State<MyOrderView> {
                       height: 15,
                     ),
                     Divider(
-                      color: TColor.secondaryText.withOpacity(0.5),
+                      color: TColor.secondaryText.withValues(alpha: 0.5),
                       height: 1,
                     ),
                     const SizedBox(

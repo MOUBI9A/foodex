@@ -105,7 +105,7 @@ class _NotificationsViewState extends State<NotificationsView> {
                 separatorBuilder: ((context, index) => Divider(
                   indent: 25,
                   endIndent: 25,
-                      color: TColor.secondaryText.withOpacity(0.4),
+                      color: TColor.secondaryText.withValues(alpha: 0.4),
                       height: 1,
                     )),
                 itemBuilder: ((context, index) {

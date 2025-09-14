@@ -74,7 +74,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                             borderRadius: BorderRadius.circular(40),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
+                                color: Colors.black.withValues(alpha: 0.1),
                                 blurRadius: 10,
                                 offset: const Offset(0, 3),
                               ),
@@ -172,7 +172,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         offset: const Offset(0, 2),
                       ),
@@ -216,7 +216,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         offset: const Offset(0, 2),
                       ),
@@ -269,7 +269,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         offset: const Offset(0, 2),
                       ),
@@ -311,7 +311,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 15, vertical: 8),
                             decoration: BoxDecoration(
-                              color: TColor.primary.withOpacity(0.1),
+                              color: TColor.primary.withValues(alpha: 0.1),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Text(
@@ -342,7 +342,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         offset: const Offset(0, 2),
                       ),
@@ -443,7 +443,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: Colors.white.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -513,10 +513,10 @@ class _ChefProfileViewState extends State<ChefProfileView> {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: statusColor.withOpacity(0.1),
+        color: statusColor.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: statusColor.withOpacity(0.3),
+          color: statusColor.withValues(alpha: 0.3),
           width: 1,
         ),
       ),
@@ -610,7 +610,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),

@@ -15,8 +15,6 @@ class ChangeAddressView extends StatefulWidget {
 }
 
 class _ChangeAddressViewState extends State<ChangeAddressView> {
-  GoogleMapController? _controller;
-
   final locations = const [
     LatLng(37.42796133580664, -122.085749655962),
   ];
@@ -92,7 +90,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
               )),
             markers: markers,
             onMapCreated: (GoogleMapController controller) {
-              _controller = controller;
+              // Map controller ready for use
             },
           );
         },

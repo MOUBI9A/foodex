@@ -24,8 +24,6 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -73,7 +71,6 @@ class _LoginViewState extends State<LoginView> {
                   title: "Login",
                   onPressed: () {
                     btnLogin();
-                    
                   }),
               const SizedBox(
                 height: 4,
@@ -176,7 +173,11 @@ class _LoginViewState extends State<LoginView> {
 
     endEditing();
 
-    serviceCallLogin({"email": txtEmail.text, "password": txtPassword.text, "push_token": "" });
+    serviceCallLogin({
+      "email": txtEmail.text,
+      "password": txtPassword.text,
+      "push_token": ""
+    });
   }
 
   //TODO: ServiceCall
@@ -188,13 +189,15 @@ class _LoginViewState extends State<LoginView> {
         withSuccess: (responseObj) async {
       Globs.hideHUD();
       if (responseObj[KKey.status] == "1") {
-        
-        Globs.udSet( responseObj[KKey.payload] as Map? ?? {} , Globs.userPayload);
+        Globs.udSet(responseObj[KKey.payload] as Map? ?? {}, Globs.userPayload);
         Globs.udBoolSet(true, Globs.userLogin);
 
-          Navigator.pushAndRemoveUntil(context,  MaterialPageRoute(
-            builder: (context) => const OnBoardingView(),
-          ), (route) => false);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const OnBoardingView(),
+            ),
+            (route) => false);
       } else {
         mdShowAlert(Globs.appName,
             responseObj[KKey.message] as String? ?? MSG.fail, () {});

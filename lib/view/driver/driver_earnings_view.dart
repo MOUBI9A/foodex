@@ -153,14 +153,14 @@ class _DriverEarningsViewState extends State<DriverEarningsView> {
                 padding: const EdgeInsets.all(25),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [TColor.primary, TColor.primary.withOpacity(0.8)],
+                    colors: [TColor.primary, TColor.primary.withValues(alpha: 0.8)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: TColor.primary.withOpacity(0.3),
+                      color: TColor.primary.withValues(alpha: 0.3),
                       blurRadius: 10,
                       offset: const Offset(0, 5),
                     ),
@@ -216,7 +216,7 @@ class _DriverEarningsViewState extends State<DriverEarningsView> {
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 5,
                       offset: const Offset(0, 2),
                     ),
@@ -291,7 +291,7 @@ class _DriverEarningsViewState extends State<DriverEarningsView> {
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 5,
                       offset: const Offset(0, 2),
                     ),
@@ -355,7 +355,7 @@ class _DriverEarningsViewState extends State<DriverEarningsView> {
           width: 40,
           height: 40,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
+            color: color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Icon(icon, color: color, size: 20),

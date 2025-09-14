@@ -18,7 +18,7 @@ class UserTypeSelectorView extends StatelessWidget {
             end: Alignment.bottomCenter,
             colors: [
               TColor.primary,
-              TColor.primary.withOpacity(0.8),
+              TColor.primary.withValues(alpha: 0.8),
             ],
           ),
         ),
@@ -82,7 +82,7 @@ class UserTypeSelectorView extends StatelessWidget {
                     "Community-driven food marketplace\nConnect with local home chefs",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.9),
+                      color: Colors.white.withValues(alpha: 0.9),
                       fontSize: 16,
                       height: 1.4,
                     ),
@@ -103,11 +103,13 @@ class UserTypeSelectorView extends StatelessWidget {
                       final walletService = WalletService();
                       await walletService.initializeWallet('customer_001');
 
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MainTabView()),
-                      );
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainTabView()),
+                        );
+                      }
                     },
                   ),
 
@@ -126,11 +128,13 @@ class UserTypeSelectorView extends StatelessWidget {
                       final walletService = WalletService();
                       await walletService.initializeWallet('chef_001');
 
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ChefMainTabView()),
-                      );
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ChefMainTabView()),
+                        );
+                      }
                     },
                   ),
 
@@ -149,11 +153,13 @@ class UserTypeSelectorView extends StatelessWidget {
                       final walletService = WalletService();
                       await walletService.initializeWallet('courier_001');
 
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DriverMainTabView()),
-                      );
+                      if (context.mounted) {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DriverMainTabView()),
+                        );
+                      }
                     },
                   ),
 
@@ -163,7 +169,7 @@ class UserTypeSelectorView extends StatelessWidget {
                     "Choose your experience\nSwitch between modes anytime",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.7),
+                      color: Colors.white.withValues(alpha: 0.7),
                       fontSize: 14,
                       height: 1.4,
                     ),
@@ -208,7 +214,7 @@ class UserTypeSelectorView extends StatelessWidget {
               width: 65,
               height: 65,
               decoration: BoxDecoration(
-                color: textColor.withOpacity(0.15),
+                color: textColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Icon(
@@ -234,7 +240,7 @@ class UserTypeSelectorView extends StatelessWidget {
                   Text(
                     subtitle,
                     style: TextStyle(
-                      color: textColor.withOpacity(0.8),
+                      color: textColor.withValues(alpha: 0.8),
                       fontSize: 14,
                       height: 1.3,
                     ),
@@ -246,12 +252,12 @@ class UserTypeSelectorView extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: textColor.withOpacity(0.1),
+                color: textColor.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
                 Icons.arrow_forward,
-                color: textColor.withOpacity(0.8),
+                color: textColor.withValues(alpha: 0.8),
                 size: 20,
               ),
             ),

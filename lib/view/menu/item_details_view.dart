@@ -107,7 +107,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                                               color: TColor.primary,
                                             ),
                                             onRatingUpdate: (rating) {
-                                              print(rating);
+                                              // Rating updated: $rating
                                             },
                                           ),
                                         ),
@@ -183,8 +183,8 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 25),
                                   child: Divider(
-                                    color:
-                                        TColor.secondaryText.withOpacity(0.4),
+                                    color: TColor.secondaryText
+                                        .withValues(alpha: 0.4),
                                     height: 1,
                                   )),
                               const SizedBox(

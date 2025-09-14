@@ -141,7 +141,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
+                        color: Colors.black.withValues(alpha: 0.1),
                         blurRadius: 5,
                         offset: const Offset(0, 2),
                       ),
@@ -204,7 +204,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color: Colors.black.withValues(alpha: 0.1),
                           blurRadius: 5,
                           offset: const Offset(0, 2),
                         ),
@@ -228,7 +228,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 12, vertical: 6),
                               decoration: BoxDecoration(
-                                color: Colors.green.withOpacity(0.1),
+                                color: Colors.green.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
@@ -249,7 +249,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
                               width: 50,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: TColor.primary.withOpacity(0.1),
+                                color: TColor.primary.withValues(alpha: 0.1),
                                 borderRadius: BorderRadius.circular(25),
                               ),
                               child: Icon(
@@ -387,7 +387,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -424,7 +424,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),

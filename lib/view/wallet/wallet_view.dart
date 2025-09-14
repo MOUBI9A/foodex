@@ -235,7 +235,7 @@ class TransactionCard extends StatelessWidget {
             decoration: BoxDecoration(
               color: walletService
                   .getTransactionColor(transaction.type)
-                  .withOpacity(0.1),
+                  .withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Icon(
@@ -338,20 +338,24 @@ class _TopUpDialogState extends State<TopUpDialog> {
     });
 
     if (success) {
-      Navigator.pop(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Wallet topped up successfully!"),
-          backgroundColor: Colors.green,
-        ),
-      );
+      if (context.mounted) {
+        Navigator.pop(context);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Wallet topped up successfully!"),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Top-up failed. Please try again."),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Top-up failed. Please try again."),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 

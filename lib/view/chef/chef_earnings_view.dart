@@ -159,7 +159,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
                             decoration: BoxDecoration(
                               color: isSelected
                                   ? Colors.white
-                                  : Colors.white.withOpacity(0.2),
+                                  : Colors.white.withValues(alpha: 0.2),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Text(
@@ -217,7 +217,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
                             Container(
                               width: 1,
                               height: 40,
-                              color: TColor.placeholder.withOpacity(0.3),
+                              color: TColor.placeholder.withValues(alpha: 0.3),
                             ),
                             Expanded(
                               child: _buildEarningStat(
@@ -246,7 +246,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
                 borderRadius: BorderRadius.circular(25),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: 0.1),
                     blurRadius: 5,
                     offset: const Offset(0, 2),
                   ),
@@ -329,7 +329,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -404,7 +404,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -506,7 +506,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -565,7 +565,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 5,
                   offset: const Offset(0, 2),
                 ),
@@ -603,7 +603,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
       child: Container(
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
-          color: color.withOpacity(0.1),
+          color: color.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
@@ -643,7 +643,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 5,
             offset: const Offset(0, 2),
           ),
@@ -656,8 +656,8 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
             height: 50,
             decoration: BoxDecoration(
               color: isCompleted
-                  ? Colors.green.withOpacity(0.1)
-                  : Colors.orange.withOpacity(0.1),
+                  ? Colors.green.withValues(alpha: 0.1)
+                  : Colors.orange.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Icon(
@@ -732,7 +732,7 @@ class _ChefEarningsViewState extends State<ChefEarningsView>
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
