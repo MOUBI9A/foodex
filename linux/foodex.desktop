@@ -1,0 +1,53 @@
+# FoodEx Linux Configuration
+# This file contains Linux-specific settings for the FoodEx app
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=FoodEx
+GenericName=Food Marketplace
+Comment=Community-driven food marketplace connecting customers with local home chefs
+Exec=foodex
+Icon=foodex
+Terminal=false
+Categories=Network;Office;Food;Shopping;
+Keywords=food;delivery;restaurant;chef;marketplace;moroccan;
+StartupNotify=true
+StartupWMClass=FoodEx
+
+# MIME Types (for file associations)
+MimeType=application/x-foodex-order;
+
+# Application Information
+X-GNOME-FullName=FoodEx - Community-driven Food Marketplace
+X-GNOME-SingleWindow=true
+X-Ubuntu-Touch=true
+
+# Localization
+Name[en_US]=FoodEx
+Name[fr]=FoodEx
+Name[ar]=فود إكس
+Comment[en_US]=Community-driven food marketplace
+Comment[fr]=Marché alimentaire communautaire
+Comment[ar]=سوق الطعام المجتمعي
+
+# Actions (for right-click menu)
+Actions=NewOrder;ViewOrders;OpenWallet;
+
+[Desktop Action NewOrder]
+Name=New Order
+Name[fr]=Nouvelle Commande
+Name[ar]=طلب جديد
+Exec=foodex --new-order
+
+[Desktop Action ViewOrders]
+Name=View Orders
+Name[fr]=Voir les Commandes
+Name[ar]=عرض الطلبات
+Exec=foodex --view-orders
+
+[Desktop Action OpenWallet]
+Name=Open Wallet
+Name[fr]=Ouvrir le Portefeuille
+Name[ar]=فتح المحفظة
+Exec=foodex --open-wallet

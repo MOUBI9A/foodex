@@ -1,10 +1,50 @@
 # 🍽️ FoodEx - Community-Driven Food Marketplace
 
-**Developed by MOUBI9A**
+**Developed by MOUBI9A** | **Multi-Platform Support**
 
 ![FoodEx Logo](https://img.shields.io/badge/FoodEx-Community%20Food%20Marketplace-orange?style=for-the-badge&logo=restaurant)
+![Platform Support](https://img.shields.io/badge/Platform-Android%20%7C%20iOS%20%7C%20Web%20%7C%20Windows%20%7C%20macOS%20%7C%20Linux-blue?style=for-the-badge)
+![Flutter](https://img.shields.io/badge/Flutter-3.24+-blue?style=for-the-badge&logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.4+-blue?style=for-the-badge&logo=dart)
 
-A revolutionary Flutter-based food delivery application that connects food lovers with passionate home chefs in their local community. FoodEx features a beautiful Moroccan-inspired design and a comprehensive wallet-based payment system.
+A revolutionary cross-platform food delivery application that connects food lovers with passionate home chefs in their local community. FoodEx features a beautiful Moroccan-inspired design, comprehensive wallet-based payment system, and supports **all major platforms**.
+
+## 🚀 **Platform Support**
+
+FoodEx runs everywhere your users are:
+
+### 📱 **Mobile Platforms**
+- **Android** (API 21+) - Phones, Tablets, Android TV
+- **iOS** (12.0+) - iPhone, iPad, Apple TV
+
+### 🌐 **Web Platforms**
+- **Progressive Web App** - Works offline, installable
+- **All Modern Browsers** - Chrome, Firefox, Safari, Edge
+- **Mobile Web** - Responsive design for mobile browsers
+
+### 💻 **Desktop Platforms**
+- **macOS** (10.14+) - Intel & Apple Silicon support
+- **Windows** (Windows 10+) - Native Windows app
+- **Linux** - Ubuntu, Fedora, Arch, and derivatives
+
+### ⚡ **Quick Platform Commands**
+```bash
+# Mobile
+flutter run -d android          # Android device/emulator
+flutter run -d ios             # iOS device/simulator
+
+# Web
+flutter run -d chrome          # Web browser
+flutter run -d web-server      # Local web server
+
+# Desktop  
+flutter run -d macos           # macOS app
+flutter run -d windows         # Windows app
+flutter run -d linux           # Linux app
+
+# Build all platforms
+./build_all_platforms.sh all   # Automated multi-platform build
+```
 
 ## 🌟 Features
 
