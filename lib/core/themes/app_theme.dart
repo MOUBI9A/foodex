@@ -166,12 +166,12 @@ class AppTheme {
       primary: AppColors.primary,
       secondary: AppColors.secondary,
       surface: AppColors.surface,
-      background: AppColors.background,
+      // background: AppColors.background,  // Deprecated, using surface instead
       error: AppColors.error,
       onPrimary: AppColors.textOnPrimary,
       onSecondary: AppColors.white,
       onSurface: AppColors.textPrimary,
-      onBackground: AppColors.textPrimary,
+      // onBackground: AppColors.textPrimary,  // Deprecated, using onSurface instead
       onError: AppColors.white,
     ),
     fontFamily: AppTextStyles._fontFamily,
