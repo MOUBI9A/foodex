@@ -19,14 +19,19 @@ The Flutter front-end development is **100% complete** with 37+ screens, compreh
 
 ## 📋 Documentation
 
-### 🎯 For Developers
+### 🎯 Quick Start Guides
+- 🎉 [**Visual Feature Guide**](VISUAL_FEATURE_GUIDE.md) - **Complete visual tour of all 38 screens**
 - ✅ [**Flutter Frontend Completion**](FLUTTER_FRONTEND_COMPLETION.md) - **Complete task list with all implemented features**
+- 📦 [**Project Handoff Guide**](PROJECT_HANDOFF.md) - **Complete handoff documentation for all stakeholders**
+
+### 🔗 For Backend Developers
 - 🔗 [**Backend Integration Checklist**](BACKEND_INTEGRATION_CHECKLIST.md) - **Step-by-step guide for backend developers**
-- 📖 [Project Structure](docs/PROJECT_STRUCTURE.md) - Detailed architecture overview
 - 🔧 [Backend Integration Guide](docs/BACKEND_INTEGRATION_GUIDE.md) - API integration instructions
 - 📡 [API Technical Specifications](docs/API_TECHNICAL_SPECIFICATIONS.md) - Complete API documentation
+- 📮 [Postman Collection](docs/FoodEx_API_Postman_Collection.json) - Ready-to-use API testing collection
 
-### 📊 Reports & Guides
+### 📊 Project Documentation
+- 📖 [Project Structure](docs/PROJECT_STRUCTURE.md) - Detailed architecture overview
 - 🚀 [Features Documentation](docs/FEATURES_DOCUMENTATION.md) - Complete feature list
 - 📊 [Final Documentation](docs/FINAL_DOCUMENTATION.md) - Project completion summary
 - 🧪 [Testing Report](docs/COMPREHENSIVE_TESTING_REPORT.md) - Testing results and validation
