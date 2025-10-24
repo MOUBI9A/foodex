@@ -29,6 +29,8 @@ class _HomeViewState extends State<HomeView> {
   bool _isLoading = false;
   int _currentBannerIndex = 0;
   final PageController _bannerController = PageController();
+  final ScrollController _scrollController = ScrollController();
+  bool _showScrollToTop = false;
   
   // Promotional banners data
   List<Map<String, dynamic>> banners = [
@@ -69,13 +71,48 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     _startBannerAutoScroll();
+    _scrollController.addListener(_scrollListener);
   }
   
   @override
   void dispose() {
     _bannerController.dispose();
+    _scrollController.dispose();
     txtSearch.dispose();
     super.dispose();
+  }
+  
+  void _scrollListener() {
+    if (_scrollController.offset >= 400 && !_showScrollToTop) {
+      setState(() {
+        _showScrollToTop = true;
+      });
+    } else if (_scrollController.offset < 400 && _showScrollToTop) {
+      setState(() {
+        _showScrollToTop = false;
+      });
+    }
+  }
+  
+  void _scrollToTop() {
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.easeInOutCubic,
+    );
+  }
+  
+  Future<void> _onRefresh() async {
+    // Simulate data refresh
+    setState(() {
+      _isLoading = true;
+    });
+    
+    await Future.delayed(const Duration(seconds: 2));
+    
+    setState(() {
+      _isLoading = false;
+    });
   }
   
   void _startBannerAutoScroll() {
@@ -176,10 +213,16 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: TColorV2.background,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: SpacingV2.lg),
-          child: Column(
+      body: RefreshIndicator(
+        onRefresh: _onRefresh,
+        color: TColorV2.primary,
+        backgroundColor: TColorV2.surface,
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: SpacingV2.lg),
+            child: Column(
             children: [
               SizedBox(height: SpacingV2.xxxl),
 
@@ -707,6 +750,22 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
+      ),
+      // Floating Action Button - Scroll to Top
+      floatingActionButton: _showScrollToTop
+          ? ScaleInAnimation(
+              duration: AnimationsV2.fast,
+              child: FloatingActionButton(
+                onPressed: _scrollToTop,
+                backgroundColor: TColorV2.primary,
+                elevation: 6,
+                child: Icon(
+                  Icons.arrow_upward,
+                  color: Colors.white,
+                ),
+              ),
+            )
+          : null,
     );
   }
 

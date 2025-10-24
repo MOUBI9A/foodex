@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/core/theme/color_system_v2.dart';
+import 'package:food_delivery/core/theme/design_tokens_v2.dart';
+import 'package:food_delivery/presentation/widgets/modern_card.dart';
 
 import '../../core/theme/color_extension.dart';
 
@@ -10,77 +13,131 @@ class MostPopularCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      child: InkWell(
+      margin: EdgeInsets.only(right: SpacingV2.md),
+      width: 240,
+      child: ModernCard(
+        padding: EdgeInsets.zero,
+        elevationLevel: 3,
         onTap: onTap,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                mObj["image"].toString(),
-                width: 220,
-                height: 130,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              mObj["name"],
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: TColor.primaryText,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(
-              height: 4,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+            // Image with gradient overlay
+            Stack(
               children: [
-                Text(
-                  mObj["type"],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: TColor.secondaryText,
-                      fontSize: 12),
+                ClipRRect(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(RadiusV2.card),
+                  ),
+                  child: Image.asset(
+                    mObj["image"].toString(),
+                    width: 240,
+                    height: 140,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-
-                Text(
-                " . ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.primary, fontSize: 12),
+                // Gradient overlay
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.black.withValues(alpha: 0.5),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-
-                Text(
-                  mObj["food_type"],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.secondaryText, fontSize: 12),
-                ),
-
-                const SizedBox(
-                  width: 8,
-                ),
-            
-                Image.asset(
-                "assets/img/rate.png",
-                width: 10,
-                height: 10,
-                fit: BoxFit.cover,
-              ) ,
-              const SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  mObj["rate"],
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: TColor.primary, fontSize: 12),
+                // Rating badge at top right
+                Positioned(
+                  top: SpacingV2.sm,
+                  right: SpacingV2.sm,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: SpacingV2.xs,
+                      vertical: SpacingV2.xxs,
+                    ),
+                    decoration: BoxDecoration(
+                      color: TColorV2.secondary,
+                      borderRadius: BorderRadius.circular(RadiusV2.full),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.2),
+                          blurRadius: 6,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.star,
+                          size: SizingV2.iconSm,
+                          color: Colors.white,
+                        ),
+                        SizedBox(width: SpacingV2.xxs),
+                        Text(
+                          mObj["rate"],
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: TypographyScaleV2.xs,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
+            ),
+            // Restaurant details
+            Padding(
+              padding: EdgeInsets.all(SpacingV2.sm),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    mObj["name"],
+                    style: TextStyle(
+                      color: TColorV2.textPrimary,
+                      fontSize: TypographyScaleV2.md,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: SpacingV2.xxs),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.restaurant_menu,
+                        size: SizingV2.iconSm,
+                        color: TColorV2.textSecondary,
+                      ),
+                      SizedBox(width: SpacingV2.xxs),
+                      Expanded(
+                        child: Text(
+                          "${mObj["type"]} • ${mObj["food_type"]}",
+                          style: TextStyle(
+                            color: TColorV2.textSecondary,
+                            fontSize: TypographyScaleV2.xs,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),
