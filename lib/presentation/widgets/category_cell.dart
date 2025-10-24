@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/core/theme/color_system_v2.dart';
+import 'package:food_delivery/core/theme/design_tokens_v2.dart';
 
 import '../../core/theme/color_extension.dart';
 
@@ -10,32 +12,49 @@ class CategoryCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
+      margin: EdgeInsets.symmetric(horizontal: SpacingV2.xs),
       child: InkWell(
         onTap: onTap,
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                cObj["image"].toString(),
+        borderRadius: BorderRadius.circular(RadiusV2.lg),
+        child: Container(
+          width: 90,
+          child: Column(
+            children: [
+              Container(
                 width: 85,
                 height: 85,
-                fit: BoxFit.cover,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(RadiusV2.lg),
+                  boxShadow: [
+                    BoxShadow(
+                      color: TColorV2.primary.withValues(alpha: 0.15),
+                      blurRadius: 12,
+                      offset: Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(RadiusV2.lg),
+                  child: Image.asset(
+                    cObj["image"].toString(),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Text(
-              cObj["name"],
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: TColor.primaryText,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700),
-            ),
-          ],
+              SizedBox(height: SpacingV2.xs),
+              Text(
+                cObj["name"],
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: TColorV2.textPrimary,
+                  fontSize: TypographyScaleV2.sm,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
