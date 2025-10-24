@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/pages/login/login_view.dart';
-import 'package:food_delivery/presentation/pages/login/sing_up_view.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:food_delivery/core/routing/app_router.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/presentation/widgets/round_button.dart';
 
@@ -55,12 +54,7 @@ class _WelcomeViewState extends State<WelcomeView> {
               child: RoundButton(
                 title: "Login",
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const LoginView(),
-                    ),
-                  );
+                  context.go(AppRoutes.login);
                 },
               ),
             ),
@@ -73,12 +67,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                 title: "Create an Account",
                 type: RoundButtonType.textPrimary,
                 onPressed: () {
-                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SignUpView(),
-                    ),
-                  );
+                  context.go(AppRoutes.signUp);
                 },
               ),
             ),

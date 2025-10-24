@@ -1,38 +1,108 @@
 import 'dart:developer' as developer;
+import 'package:flutter/foundation.dart';
+import '../config/app_config.dart';
 
+/// Log levels
+enum LogLevel {
+  debug,
+  info,
+  warning,
+  error,
+  critical,
+}
+
+/// Professional logger with different levels and environment-aware logging
 class Logger {
-  static const String _prefix = 'FoodEx';
+  final String className;
 
-  static void info(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _prefix,
-      level: 800, // Info level
-    );
+  Logger(this.className);
+
+  /// Check if should log based on environment
+  bool _shouldLog(LogLevel level) {
+    if (!AppConfig.enableLogging) return false;
+
+    // In production, only log warnings and above
+    if (AppConfig.environment == Environment.production) {
+      return level.index >= LogLevel.warning.index;
+    }
+
+    return true;
   }
 
-  static void warning(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _prefix,
-      level: 900, // Warning level
-    );
+  /// Format log message
+  String _formatMessage(LogLevel level, String message) {
+    final timestamp = DateTime.now().toIso8601String();
+    final levelStr = level.name.toUpperCase().padRight(8);
+    return '[$timestamp] $levelStr [$className] $message';
   }
 
-  static void error(String message, {String? tag, Object? error}) {
-    developer.log(
-      message,
-      name: tag ?? _prefix,
-      level: 1000, // Error level
-      error: error,
-    );
+  /// Log with color (for debug console)
+  void _log(LogLevel level, String message,
+      {Object? error, StackTrace? stackTrace}) {
+    if (!_shouldLog(level)) return;
+
+    final formattedMessage = _formatMessage(level, message);
+
+    if (kDebugMode) {
+      // Use dart:developer log in debug mode
+      developer.log(
+        message,
+        name: className,
+        time: DateTime.now(),
+        level: _getLogLevelValue(level),
+        error: error,
+        stackTrace: stackTrace,
+      );
+    } else {
+      // Use print in release mode (will be stripped if not logging)
+      debugPrint(formattedMessage);
+      if (error != null) {
+        debugPrint('Error: $error');
+      }
+      if (stackTrace != null) {
+        debugPrint('StackTrace: $stackTrace');
+      }
+    }
   }
 
-  static void debug(String message, {String? tag}) {
-    developer.log(
-      message,
-      name: tag ?? _prefix,
-      level: 700, // Debug level
-    );
+  /// Get numeric log level for dart:developer
+  int _getLogLevelValue(LogLevel level) {
+    switch (level) {
+      case LogLevel.debug:
+        return 500;
+      case LogLevel.info:
+        return 800;
+      case LogLevel.warning:
+        return 900;
+      case LogLevel.error:
+        return 1000;
+      case LogLevel.critical:
+        return 1200;
+    }
+  }
+
+  /// Debug log
+  void debug(String message) {
+    _log(LogLevel.debug, message);
+  }
+
+  /// Info log
+  void info(String message) {
+    _log(LogLevel.info, message);
+  }
+
+  /// Warning log
+  void warning(String message) {
+    _log(LogLevel.warning, message);
+  }
+
+  /// Error log
+  void error(String message, {Object? error, StackTrace? stackTrace}) {
+    _log(LogLevel.error, message, error: error, stackTrace: stackTrace);
+  }
+
+  /// Critical log
+  void critical(String message, {Object? error, StackTrace? stackTrace}) {
+    _log(LogLevel.critical, message, error: error, stackTrace: stackTrace);
   }
 }

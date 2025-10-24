@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'chef_home_view.dart';
+// import 'chef_home_view.dart'; // Temporarily commented due to errors
 import 'chef_menu_view.dart';
 import 'chef_orders_view.dart';
 import 'chef_earnings_view.dart';
 import 'chef_profile_view.dart';
 import 'package:food_delivery/presentation/widgets/tab_button.dart';
+import 'package:food_delivery/features/chef/inventory/inventory_screen.dart';
 
 class ChefMainTabView extends StatefulWidget {
   const ChefMainTabView({super.key});
@@ -18,7 +19,8 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
   PageController controller = PageController();
 
   List<Widget> get pages => [
-        const ChefHomeView(),
+        const ChefInventoryScreen(
+            chefId: 'chef_001'), // Temporarily using inventory instead
         const ChefMenuView(),
         const ChefOrdersView(),
         const ChefEarningsView(),

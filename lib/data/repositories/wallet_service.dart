@@ -7,6 +7,8 @@ class WalletService {
   factory WalletService() => _instance;
   WalletService._internal();
 
+  final _logger = Logger('WalletService');
+
   Wallet? _currentWallet;
 
   Wallet? get currentWallet => _currentWallet;
@@ -48,8 +50,7 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      Logger.info('Transaction created: ${transaction.id}',
-          tag: 'WalletService');
+      _logger.info('Transaction created: ${transaction.id}');
 
       return true;
     } catch (e) {
@@ -81,8 +82,7 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      Logger.info('Payment transaction created: ${transaction.id}',
-          tag: 'WalletService');
+      _logger.info('Payment transaction created: ${transaction.id}');
 
       return true;
     } catch (e) {
@@ -112,8 +112,7 @@ class WalletService {
       );
 
       // In real app, save transaction to database
-      Logger.info('Received payment transaction created: ${transaction.id}',
-          tag: 'WalletService');
+      _logger.info('Received payment transaction created: ${transaction.id}');
 
       return true;
     } catch (e) {

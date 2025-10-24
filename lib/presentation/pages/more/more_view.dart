@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/pages/more/about_us_view.dart';
-import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
-import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
-import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:food_delivery/core/routing/app_router.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/core/network/service_call.dart';
-import 'my_order_view.dart';
-import 'notification_view.dart';
 
 class MoreView extends StatefulWidget {
   const MoreView({super.key});
@@ -55,7 +50,13 @@ class _MoreViewState extends State<MoreView> {
       "base": 0
     },
     {
-      "index": "6",
+      "index": "7",
+      "name": "Help & Support",
+      "image": "assets/img/more_info.png",
+      "base": 0
+    },
+    {
+      "index": "8",
       "name": "Logout",
       "image": "assets/img/more_info.png",
       "base": 0
@@ -88,10 +89,7 @@ class _MoreViewState extends State<MoreView> {
                     ),
                     IconButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MyOrderView()));
+                        context.go(AppRoutes.myOrders);
                       },
                       icon: Image.asset(
                         "assets/img/shopping_cart.png",
@@ -114,44 +112,36 @@ class _MoreViewState extends State<MoreView> {
                       onTap: () {
                         switch (mObj["index"].toString()) {
                           case "1":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const WalletView()));
+                            context.go(AppRoutes.wallet);
                             break;
 
                           case "2":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PaymentDetailsView()));
-
+                            context.go(AppRoutes.paymentDetails);
                             break;
 
                           case "3":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MyOrderView()));
+                            context.go(AppRoutes.myOrders);
+                            break;
+
                           case "4":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const NotificationsView()));
+                            context.go(AppRoutes.notifications);
+                            break;
+
                           case "5":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const InboxView()));
+                            context.go(AppRoutes.inbox);
+                            break;
+
                           case "6":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const AboutUsView()));
+                            context.go(AppRoutes.aboutUs);
+                            break;
+
                           case "7":
-                            ServiceCall.logout();
+                            context.go(AppRoutes.helpSupport);
+                            break;
+
+                          case "8":
+                            _showLogoutDialog(context);
+                            break;
 
                           default:
                         }
@@ -242,6 +232,60 @@ class _MoreViewState extends State<MoreView> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(
+            "Logout",
+            style: TextStyle(
+              color: TColor.primaryText,
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          content: Text(
+            "Are you sure you want to logout?",
+            style: TextStyle(
+              color: TColor.secondaryText,
+              fontSize: 14,
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                "Cancel",
+                style: TextStyle(
+                  color: TColor.secondaryText,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                ServiceCall.logout();
+                context.go(AppRoutes.welcome);
+              },
+              child: Text(
+                "Logout",
+                style: TextStyle(
+                  color: TColor.primary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

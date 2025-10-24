@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/core/theme/color_system_v2.dart';
+import 'package:food_delivery/core/theme/design_tokens_v2.dart';
+import 'package:food_delivery/core/theme/animations_v2.dart';
+import 'package:food_delivery/presentation/widgets/modern_button.dart';
+import 'package:food_delivery/presentation/widgets/modern_card.dart';
+import 'package:food_delivery/presentation/widgets/interactive_widgets.dart';
+import 'package:food_delivery/presentation/widgets/animated_widgets.dart';
+import 'package:food_delivery/core/utils/haptic_feedback.dart';
+import 'package:food_delivery/features/chef/inventory/inventory_screen.dart';
+import 'package:food_delivery/features/admin/dashboard/admin_dashboard_screen.dart';
 
 class ChefHomeView extends StatefulWidget {
   const ChefHomeView({super.key});
@@ -11,345 +21,370 @@ class ChefHomeView extends StatefulWidget {
 class _ChefHomeViewState extends State<ChefHomeView> {
   bool isKitchenOpen = false;
 
+  Future<void> _toggleKitchen(bool value) async {
+    await HapticFeedbackHelper.mediumImpact();
+    setState(() {
+      isKitchenOpen = value;
+    });
+    if (value) {
+      await HapticFeedbackHelper.success();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xfff5f5f5),
+      backgroundColor: TColorV2.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              // Header Section
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                decoration: BoxDecoration(
-                  color: TColor.primary,
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(25),
-                    bottomRight: Radius.circular(25),
-                  ),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Icon(
-                            Icons.restaurant_menu,
-                            size: 30,
-                            color: TColor.primary,
-                          ),
-                        ),
-                        const SizedBox(width: 15),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Chef Maria's Kitchen",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              Text(
-                                "Chef ID: CH001 • ⭐ 4.9 (156 reviews)",
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.notifications_outlined,
-                            color: Colors.white,
-                            size: 28,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    // Kitchen Status Toggle
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                isKitchenOpen
-                                    ? "Kitchen is Open"
-                                    : "Kitchen is Closed",
-                                style: TextStyle(
-                                  color: TColor.primaryText,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              Text(
-                                isKitchenOpen
-                                    ? "Ready to receive orders"
-                                    : "Turn on to start receiving orders",
-                                style: TextStyle(
-                                  color: TColor.secondaryText,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                          Switch(
-                            value: isKitchenOpen,
-                            onChanged: (value) {
-                              setState(() {
-                                isKitchenOpen = value;
-                              });
-                            },
-                            activeColor: TColor.primary,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // Today's Summary
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+              // Header Section with Animation
+              FadeInAnimation(
+                duration: AnimationsV2.normal,
                 child: Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(SpacingV2.lg),
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.1),
-                        blurRadius: 5,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
+                    gradient: LinearGradient(
+                      colors: [TColorV2.primary, TColorV2.primary.withValues(alpha: 0.8)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(RadiusV2.xl),
+                      bottomRight: Radius.circular(RadiusV2.xl),
+                    ),
+                    boxShadow: ShadowsV2.md,
                   ),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "Today's Summary",
-                        style: TextStyle(
-                          color: TColor.primaryText,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const SizedBox(height: 15),
                       Row(
                         children: [
-                          Expanded(
-                            child: _buildSummaryCard("Earnings", "\$125.50",
-                                Icons.attach_money, Colors.green),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: _buildSummaryCard("Orders", "12",
-                                Icons.receipt_long, Colors.blue),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: _buildSummaryCard("Dishes Sold", "28",
-                                Icons.restaurant, Colors.orange),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: _buildSummaryCard(
-                                "Rating", "4.9", Icons.star, Colors.amber),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // Current Orders (if kitchen is open)
-              if (isKitchenOpen)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
-                          blurRadius: 5,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Active Orders",
-                              style: TextStyle(
-                                color: TColor.primaryText,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
+                          PulseAnimation(
+                            minScale: 0.95,
+                            maxScale: 1.05,
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(RadiusV2.full),
+                                boxShadow: ShadowsV2.sm,
+                              ),
+                              child: Icon(
+                                Icons.restaurant_menu,
+                                size: 30,
+                                color: TColorV2.primary,
                               ),
                             ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: Colors.orange.withValues(alpha: 0.1),
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                "3 Cooking",
-                                style: TextStyle(
-                                  color: Colors.orange,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
+                          ),
+                          SizedBox(width: SpacingV2.md),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Chef Maria's Kitchen",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: TypographyScaleV2.lg,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
+                                SizedBox(height: SpacingV2.xs),
+                                Text(
+                                  "Chef ID: CH001 • ⭐ 4.9 (156 reviews)",
+                                  style: TextStyle(
+                                    color: Colors.white70,
+                                    fontSize: TypographyScaleV2.sm,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          InteractiveWidget(
+                            onTap: () {},
+                            child: Container(
+                              padding: EdgeInsets.all(SpacingV2.sm),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withValues(alpha: 0.2),
+                                borderRadius: BorderRadius.circular(RadiusV2.full),
+                              ),
+                              child: const Icon(
+                                Icons.notifications_outlined,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: SpacingV2.lg),
+                      // Kitchen Status Toggle with Modern Card
+                      ModernCard(
+                        padding: EdgeInsets.all(SpacingV2.lg),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    isKitchenOpen ? "Kitchen is Open" : "Kitchen is Closed",
+                                    style: TypographyScaleV2.lg.copyWith(
+                                      color: TColorV2.textPrimary,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  SizedBox(height: SpacingV2.xs),
+                                  Text(
+                                    isKitchenOpen
+                                        ? "Ready to receive orders"
+                                        : "Turn on to start receiving orders",
+                                    style: TypographyScaleV2.sm.copyWith(
+                                      color: TColorV2.textSecondary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            ScaleInAnimation(
+                              delay: const Duration(milliseconds: 300),
+                              child: Switch(
+                                value: isKitchenOpen,
+                                onChanged: _toggleKitchen,
+                                activeColor: TColorV2.primary,
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 15),
-                        _buildActiveOrder("Order #CM001", "Chicken Biryani x2",
-                            "John Smith", "20 min", Colors.orange),
-                        const SizedBox(height: 10),
-                        _buildActiveOrder("Order #CM002", "Pasta Alfredo x1",
-                            "Emma Wilson", "15 min", Colors.blue),
-                        const SizedBox(height: 10),
-                        _buildActiveOrder("Order #CM003", "Chocolate Cake x1",
-                            "Mike Johnson", "30 min", Colors.green),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              SizedBox(height: SpacingV2.lg),
+
+              // Today's Summary with Staggered Animation
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: SpacingV2.lg),
+                child: SlideInAnimation(
+                  delay: const Duration(milliseconds: 200),
+                  child: ModernCard(
+                    padding: EdgeInsets.all(SpacingV2.lg),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Today's Summary",
+                          style: TypographyScaleV2.lg.copyWith(
+                            color: TColorV2.textPrimary,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(height: SpacingV2.md),
+                        StaggeredListAnimation(
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: _buildSummaryCard("Earnings", "\$125.50",
+                                      Icons.attach_money, Colors.green),
+                                ),
+                                SizedBox(width: SpacingV2.sm),
+                                Expanded(
+                                  child: _buildSummaryCard("Orders", "12",
+                                      Icons.receipt_long, Colors.blue),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: SpacingV2.sm),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: _buildSummaryCard("Dishes Sold", "28",
+                                      Icons.restaurant, Colors.orange),
+                                ),
+                                SizedBox(width: SpacingV2.sm),
+                                Expanded(
+                                  child: _buildSummaryCard(
+                                      "Rating", "4.9", Icons.star, Colors.amber),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+              SizedBox(height: SpacingV2.lg),
+
+              // Current Orders (if kitchen is open)
+              if (isKitchenOpen)
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: SpacingV2.lg),
+                  child: ScaleInAnimation(
+                    delay: const Duration(milliseconds: 400),
+                    child: ModernCard(
+                      padding: EdgeInsets.all(SpacingV2.lg),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Active Orders",
+                                style: TypographyScaleV2.lg.copyWith(
+                                  color: TColorV2.textPrimary,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: SpacingV2.md, vertical: SpacingV2.xs),
+                                decoration: BoxDecoration(
+                                  color: Colors.orange.withValues(alpha: 0.1),
+                                  borderRadius: BorderRadius.circular(RadiusV2.full),
+                                ),
+                                child: Text(
+                                  "3 Cooking",
+                                  style: TypographyScaleV2.sm.copyWith(
+                                    color: Colors.orange,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: SpacingV2.md),
+                          _buildActiveOrder("Order #CM001", "Chicken Biryani x2",
+                              "John Smith", "20 min", Colors.orange),
+                          SizedBox(height: SpacingV2.sm),
+                          _buildActiveOrder("Order #CM002", "Pasta Alfredo x1",
+                              "Emma Wilson", "15 min", Colors.blue),
+                          SizedBox(height: SpacingV2.sm),
+                          _buildActiveOrder("Order #CM003", "Chocolate Cake x1",
+                              "Mike Johnson", "30 min", Colors.green),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+              SizedBox(height: SpacingV2.lg),
+
+              // Popular Dishes Today
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: SpacingV2.lg),
+                child: SlideInAnimation(
+                  delay: const Duration(milliseconds: 600),
+                  child: ModernCard(
+                    padding: EdgeInsets.all(SpacingV2.lg),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Popular Dishes Today",
+                          style: TypographyScaleV2.lg.copyWith(
+                            color: TColorV2.textPrimary,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        SizedBox(height: SpacingV2.md),
+                        _buildPopularDish("Chicken Biryani", "8 orders",
+                            "\$15.99", "assets/img/item_1.png"),
+                        SizedBox(height: SpacingV2.sm),
+                        _buildPopularDish("Homemade Pasta", "6 orders", "\$12.50",
+                            "assets/img/item_2.png"),
+                        SizedBox(height: SpacingV2.sm),
+                        _buildPopularDish("Chocolate Cake", "4 orders", "\$8.99",
+                            "assets/img/dess_1.png"),
                       ],
                     ),
                   ),
                 ),
 
-              const SizedBox(height: 20),
+              SizedBox(height: SpacingV2.lg),
 
-              // Popular Dishes Today
+              // Quick Actions with Bouncy Buttons
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.1),
-                        blurRadius: 5,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
+                padding: EdgeInsets.symmetric(horizontal: SpacingV2.lg),
+                child: FadeInAnimation(
+                  delay: const Duration(milliseconds: 800),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Popular Dishes Today",
-                        style: TextStyle(
-                          color: TColor.primaryText,
-                          fontSize: 18,
+                        "Quick Actions",
+                        style: TypographyScaleV2.lg.copyWith(
+                          color: TColorV2.textPrimary,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const SizedBox(height: 15),
-                      _buildPopularDish("Chicken Biryani", "8 orders",
-                          "\$15.99", "assets/img/item_1.png"),
-                      const SizedBox(height: 10),
-                      _buildPopularDish("Homemade Pasta", "6 orders", "\$12.50",
-                          "assets/img/item_2.png"),
-                      const SizedBox(height: 10),
-                      _buildPopularDish("Chocolate Cake", "4 orders", "\$8.99",
-                          "assets/img/dess_1.png"),
+                      SizedBox(height: SpacingV2.md),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _buildQuickAction(
+                                "Add Dish", Icons.add_circle, () {}),
+                          ),
+                          SizedBox(width: SpacingV2.sm),
+                          Expanded(
+                            child: _buildQuickAction(
+                                "Update Menu", Icons.edit, () {}),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: SpacingV2.sm),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: _buildQuickAction(
+                                "Inventory", Icons.inventory_2, () async {
+                              await HapticFeedbackHelper.selectionClick();
+                              if (mounted) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const ChefInventoryScreen(
+                                      chefId: 'chef_001',
+                                    ),
+                                  ),
+                                );
+                              }
+                            }),
+                          ),
+                          SizedBox(width: SpacingV2.sm),
+                          Expanded(
+                            child: _buildQuickAction(
+                                "Analytics", Icons.analytics, () async {
+                              await HapticFeedbackHelper.selectionClick();
+                              if (mounted) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AdminDashboardScreen(
+                                      chefId: 'chef_001',
+                                    ),
+                                  ),
+                                );
+                              }
+                            }),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20),
-
-              // Quick Actions
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Quick Actions",
-                      style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _buildQuickAction(
-                              "Add Dish", Icons.add_circle, () {}),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: _buildQuickAction(
-                              "Update Menu", Icons.edit, () {}),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _buildQuickAction(
-                              "Kitchen Timer", Icons.timer, () {}),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: _buildQuickAction(
-                              "Analytics", Icons.analytics, () {}),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 30),
+              SizedBox(height: SpacingV2.xl),
             ],
           ),
         ),
@@ -359,29 +394,30 @@ class _ChefHomeViewState extends State<ChefHomeView> {
 
   Widget _buildSummaryCard(
       String title, String value, IconData icon, Color color) {
-    return Container(
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(12),
-      ),
+    return PressableCard(
+      onPressed: () async {
+        await HapticFeedbackHelper.lightImpact();
+      },
+      padding: EdgeInsets.all(SpacingV2.md),
+      backgroundColor: color.withValues(alpha: 0.1),
+      borderRadius: BorderRadius.circular(RadiusV2.md),
+      elevation: 0,
+      pressedElevation: 2,
       child: Column(
         children: [
-          Icon(icon, color: color, size: 24),
-          const SizedBox(height: 8),
+          Icon(icon, color: color, size: 28),
+          SizedBox(height: SpacingV2.xs),
           Text(
             value,
-            style: TextStyle(
-              color: TColor.primaryText,
-              fontSize: 18,
+            style: TypographyScaleV2.lg.copyWith(
+              color: TColorV2.textPrimary,
               fontWeight: FontWeight.w700,
             ),
           ),
           Text(
             title,
-            style: TextStyle(
-              color: TColor.secondaryText,
-              fontSize: 12,
+            style: TypographyScaleV2.xs.copyWith(
+              color: TColorV2.textSecondary,
             ),
           ),
         ],
@@ -391,134 +427,145 @@ class _ChefHomeViewState extends State<ChefHomeView> {
 
   Widget _buildActiveOrder(String orderNumber, String dish, String customer,
       String time, Color statusColor) {
-    return Row(
-      children: [
-        Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-            color: statusColor.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Icon(Icons.restaurant, color: statusColor, size: 20),
+    return InteractiveWidget(
+      onTap: () async {
+        await HapticFeedbackHelper.selectionClick();
+      },
+      child: Container(
+        padding: EdgeInsets.all(SpacingV2.sm),
+        decoration: BoxDecoration(
+          color: TColorV2.surface,
+          borderRadius: BorderRadius.circular(RadiusV2.md),
+          border: Border.all(color: statusColor.withValues(alpha: 0.2)),
         ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                orderNumber,
-                style: TextStyle(
-                  color: TColor.primaryText,
-                  fontSize: 14,
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: statusColor.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(RadiusV2.full),
+              ),
+              child: Icon(Icons.restaurant, color: statusColor, size: 20),
+            ),
+            SizedBox(width: SpacingV2.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    orderNumber,
+                    style: TypographyScaleV2.sm.copyWith(
+                      color: TColorV2.textPrimary,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    "$dish • $customer",
+                    style: TypographyScaleV2.xs.copyWith(
+                      color: TColorV2.textSecondary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: SpacingV2.sm, vertical: SpacingV2.xs),
+              decoration: BoxDecoration(
+                color: statusColor.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(RadiusV2.sm),
+              ),
+              child: Text(
+                time,
+                style: TypographyScaleV2.xs.copyWith(
+                  color: statusColor,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
-                "$dish • $customer",
-                style: TextStyle(
-                  color: TColor.secondaryText,
-                  fontSize: 12,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            color: statusColor.withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Text(
-            time,
-            style: TextStyle(
-              color: statusColor,
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
   Widget _buildPopularDish(
       String name, String orders, String price, String image) {
-    return Row(
-      children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
+    return InteractiveWidget(
+      onTap: () async {
+        await HapticFeedbackHelper.lightImpact();
+      },
+      child: Container(
+        padding: EdgeInsets.all(SpacingV2.sm),
+        decoration: BoxDecoration(
+          color: TColorV2.surface,
+          borderRadius: BorderRadius.circular(RadiusV2.md),
+        ),
+        child: Row(
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(RadiusV2.sm),
+                image: DecorationImage(
+                  image: AssetImage(image),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  color: TColor.primaryText,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
+            SizedBox(width: SpacingV2.md),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    name,
+                    style: TypographyScaleV2.sm.copyWith(
+                      color: TColorV2.textPrimary,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    orders,
+                    style: TypographyScaleV2.xs.copyWith(
+                      color: TColorV2.textSecondary,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                orders,
-                style: TextStyle(
-                  color: TColor.secondaryText,
-                  fontSize: 12,
-                ),
+            ),
+            Text(
+              price,
+              style: TypographyScaleV2.sm.copyWith(
+                color: TColorV2.primary,
+                fontWeight: FontWeight.w700,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Text(
-          price,
-          style: TextStyle(
-            color: TColor.primary,
-            fontSize: 14,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ],
+      ),
     );
   }
 
   Widget _buildQuickAction(String title, IconData icon, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.1),
-              blurRadius: 5,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
+    return BouncyButton(
+      onPressed: () async {
+        await HapticFeedbackHelper.mediumImpact();
+        onTap();
+      },
+      child: ModernCard(
+        padding: EdgeInsets.all(SpacingV2.lg),
         child: Column(
           children: [
-            Icon(icon, color: TColor.primary, size: 30),
-            const SizedBox(height: 10),
+            Icon(icon, color: TColorV2.primary, size: 32),
+            SizedBox(height: SpacingV2.sm),
             Text(
               title,
-              style: TextStyle(
-                color: TColor.primaryText,
-                fontSize: 14,
+              style: TypographyScaleV2.sm.copyWith(
+                color: TColorV2.textPrimary,
                 fontWeight: FontWeight.w600,
               ),
             ),

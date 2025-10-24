@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:food_delivery/core/routing/app_router.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/presentation/widgets/round_button.dart';
-import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -134,14 +135,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     title: "Next",
                     onPressed: () {
                       if (selectPage >= 2) {
-                        // Home Screen
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MainTabView(),
-                          ),
-                        );
+                        // Navigate to main app
+                        context.go(AppRoutes.main);
                       } else {
                         //Next Screen
 

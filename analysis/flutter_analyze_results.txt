@@ -1,0 +1,66 @@
+Analyzing food_delivery_meal-main...                            
+
+  error • The method '_$MenuItemModelToJson' isn't defined for the type 'MenuItemModel' • lib/data/models/menu_item_model.dart:33:36 • undefined_method
+  error • Expected an identifier • lib/data/models/menu_item_model.g.dart:17:17 • missing_identifier
+  error • Couldn't infer type parameter 'K'.
+
+Tried to infer 'String' for 'K' which doesn't work:
+  Type parameter 'K' is declared to extend 'Enum' producing 'Enum'.
+The type 'String' was inferred from:
+  Parameter 'enumValues' declared as     'Map<K, V>'
+                         but argument is 'Map<String, dynamic>'.
+
+Consider passing explicit type argument(s) to the generic.
+
+ • lib/data/models/menu_item_model.g.dart:17:18 • could_not_infer
+  error • Expected to find ',' • lib/data/models/menu_item_model.g.dart:17:18 • expected_token
+  error • Too many positional arguments: 0 expected, but 1 found • lib/data/models/menu_item_model.g.dart:17:18 • extra_positional_arguments
+  error • 2 positional arguments expected by '$enumDecode', but 1 found • lib/data/models/menu_item_model.g.dart:17:31 • not_enough_positional_arguments
+  error • Expected to find ')' • lib/data/models/menu_item_model.g.dart:17:31 • expected_token
+  error • Expected to find ';' • lib/data/models/menu_item_model.g.dart:36:22 • expected_token
+  error • The non-nullable variable '_' must be initialized • lib/data/models/menu_item_model.g.dart:36:22 • not_initialized_non_nullable_variable
+  error • Expected a method, getter, setter or operator declaration • lib/data/models/menu_item_model.g.dart:36:23 • expected_executable
+  error • Expected to find '}' • lib/data/models/menu_item_model.g.dart:44:20 • expected_token
+   info • An uninitialized variable should have an explicit type annotation • lib/data/models/menu_item_model.g.dart:59:7 • prefer_typing_uninitialized_variables
+warning • The declaration '_' isn't referenced • lib/data/models/menu_item_model.g.dart:59:7 • unused_element
+  error • Expected to find ';' • lib/data/models/menu_item_model.g.dart:59:7 • expected_token
+  error • The constant '_' must be initialized • lib/data/models/menu_item_model.g.dart:59:7 • const_not_initialized
+  error • The name '_' is already defined • lib/data/models/menu_item_model.g.dart:59:7 • duplicate_definition
+  error • Expected a method, getter, setter or operator declaration • lib/data/models/menu_item_model.g.dart:59:8 • expected_executable
+  error • Variables must be declared using the keywords 'const', 'final', 'var' or a type name • lib/data/models/menu_item_model.g.dart:59:9 • missing_const_final_var_or_type
+  error • Target of URI hasn't been generated: 'package:food_delivery/data/models/order_model.g.dart' • lib/data/models/order_model.dart:4:6 • uri_has_not_been_generated
+  error • The method '_$OrderItemModelFromJson' isn't defined for the type 'OrderItemModel' • lib/data/models/order_model.dart:18:7 • undefined_method
+  error • The method '_$OrderItemModelToJson' isn't defined for the type 'OrderItemModel' • lib/data/models/order_model.dart:20:36 • undefined_method
+  error • The method '_$OrderModelFromJson' isn't defined for the type 'OrderModel' • lib/data/models/order_model.dart:71:7 • undefined_method
+  error • The method '_$OrderModelToJson' isn't defined for the type 'OrderModel' • lib/data/models/order_model.dart:73:36 • undefined_method
+  error • The argument type 'String' can't be assigned to the parameter type 'int'.  • lib/data/models/restaurant_model.g.dart:23:30 • argument_type_not_assignable
+   info • The imported package 'dio' isn't a dependency of the importing package • lib/data/repositories/admin/dashboard_repository.dart:1:8 • depend_on_referenced_packages
+  error • Target of URI doesn't exist: 'package:dio/dio.dart' • lib/data/repositories/admin/dashboard_repository.dart:1:8 • uri_does_not_exist
+  error • Undefined class 'Dio' • lib/data/repositories/admin/dashboard_repository.dart:11:9 • undefined_class
+  error • Undefined class 'Dio' • lib/data/repositories/admin/dashboard_repository.dart:14:24 • undefined_class
+  error • The method 'Dio' isn't defined for the type 'DashboardRepository' • lib/data/repositories/admin/dashboard_repository.dart:14:51 • undefined_method
+  error • The method 'Options' isn't defined for the type 'DashboardRepository' • lib/data/repositories/admin/dashboard_repository.dart:194:18 • undefined_method
+  error • Undefined name 'ResponseType' • lib/data/repositories/admin/dashboard_repository.dart:194:40 • undefined_identifier
+   info • 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead • lib/presentation/pages/admin/dashboard/dashboard_screen.dart:10:1 • deprecated_member_use
+   info • Don't use web-only libraries outside Flutter web plugins • lib/presentation/pages/admin/dashboard/dashboard_screen.dart:10:1 • avoid_web_libraries_in_flutter
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/dashboard_screen.dart:49:48 • deprecated_member_use
+warning • The value of the local variable 'anchor' isn't used • lib/presentation/pages/admin/dashboard/dashboard_screen.dart:245:13 • unused_local_variable
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/dashboard_header.dart:37:37 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/dashboard_header.dart:100:50 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/metric_card.dart:52:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/metric_card.dart:70:44 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/orders_table.dart:162:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/orders_table.dart:265:22 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/orders_table.dart:319:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/orders_table.dart:333:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/revenue_chart.dart:202:38 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/admin/dashboard/widgets/system_health_card.dart:90:22 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/more/help_support_view.dart:120:63 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/more/help_support_view.dart:139:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/more/help_support_view.dart:307:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/presentation/pages/order/order_success_view.dart:33:41 • deprecated_member_use
+   info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check • lib/presentation/pages/wallet/wallet_view.dart:342:23 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check • lib/presentation/pages/wallet/wallet_view.dart:343:30 • use_build_context_synchronously
+   info • Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check • lib/presentation/pages/wallet/wallet_view.dart:352:30 • use_build_context_synchronously
+
+52 issues found. (ran in 2.3s)

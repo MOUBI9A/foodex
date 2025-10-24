@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
-
-// Imports commented out for bypass testing:
-// import 'package:food_delivery/presentation/pages/login/welcome_view.dart';
-// import 'package:food_delivery/core/constants/globs.dart';
+import 'package:go_router/go_router.dart';
+import 'package:food_delivery/core/routing/app_router.dart';
+import 'package:food_delivery/core/constants/globs.dart';
 
 class StartupView extends StatefulWidget {
   const StartupView({super.key});
@@ -25,18 +23,12 @@ class _StarupViewState extends State<StartupView> {
   }
 
   void welcomePage() {
-    // Bypass authentication for testing - go directly to main app
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const MainTabView()));
-
-    // Original code (commented out for testing):
-    // if (Globs.udValueBool(Globs.userLogin)) {
-    //    Navigator.push(context,
-    //       MaterialPageRoute(builder: (context) => const MainTabView()));
-    // }else{
-    //    Navigator.push(
-    //     context, MaterialPageRoute(builder: (context) => const WelcomeView()));
-    // }
+    // Check if user is already logged in
+    if (Globs.udValueBool(Globs.userLogin)) {
+      context.go(AppRoutes.main);
+    } else {
+      context.go(AppRoutes.welcome);
+    }
   }
 
   @override

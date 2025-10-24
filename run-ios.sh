@@ -29,13 +29,27 @@ flutter pub get
 
 # Check for iOS devices/simulators
 echo "📱 Checking for iOS devices..."
-flutter devices | grep -i ios || {
+# Extract device ID from flutter devices output (field between • symbols)
+IOS_DEVICE=$(flutter devices | grep -i "ios" | head -1 | sed 's/.*• \([^ ]*\) •.*/\1/')
+
+if [ -z "$IOS_DEVICE" ]; then
     echo "⚠️ No iOS devices/simulators found."
     echo "🚀 Opening iOS Simulator..."
     open -a Simulator
     echo "⏳ Waiting for simulator to start..."
     sleep 10
-}
+    
+    # Try to get device again
+    IOS_DEVICE=$(flutter devices | grep -i "ios" | head -1 | sed 's/.*• \([^ ]*\) •.*/\1/')
+    
+    if [ -z "$IOS_DEVICE" ]; then
+        echo "❌ No iOS devices available. Please start a simulator manually."
+        exit 1
+    fi
+fi
+
+echo "📱 Using device: $IOS_DEVICE"
+flutter devices | grep -i ios
 
 # Update pods
 echo "📦 Updating iOS dependencies..."
@@ -51,11 +65,11 @@ case $MODE in
         ;;
     "profile")
         echo "📊 Running iOS app (Profile mode)..."
-        flutter run -d ios --profile
+        flutter run -d "$IOS_DEVICE" --profile
         ;;
     *)
         echo "🐛 Running iOS app (Debug mode)..."
-        flutter run -d ios --debug --hot
+        flutter run -d "$IOS_DEVICE" --debug --hot
         ;;
 esac
 

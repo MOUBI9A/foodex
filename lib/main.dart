@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/core/utils/locator.dart';
+import 'package:food_delivery/core/di/service_locator.dart';
 // import 'package:food_delivery/core/service_call.dart';  // Commented for bypass
 import 'package:food_delivery/presentation/pages/login/welcome_view.dart'; // Needed for routing
 import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart';
@@ -19,6 +21,10 @@ void main() async {
   setUpLocator();
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Setup dependency injection
+  await setupServiceLocator();
+
   prefs = await SharedPreferences.getInstance();
 
   // Bypass authentication for testing
@@ -27,9 +33,13 @@ void main() async {
   // }
 
   // Go directly to user type selector for testing (bypass authentication)
-  runApp(const MyApp(
-    defaultHome: UserTypeSelectorView(),
-  ));
+  runApp(
+    const ProviderScope(
+      child: MyApp(
+        defaultHome: UserTypeSelectorView(),
+      ),
+    ),
+  );
 }
 
 void configLoading() {

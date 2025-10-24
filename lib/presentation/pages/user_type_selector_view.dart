@@ -4,6 +4,7 @@ import 'package:food_delivery/presentation/pages/main_tabview/main_tabview.dart'
 import 'package:food_delivery/presentation/pages/driver/driver_main_tabview.dart';
 import 'package:food_delivery/presentation/pages/chef/chef_main_tabview.dart';
 import 'package:food_delivery/data/repositories/wallet_service.dart';
+import 'package:food_delivery/features/test_navigation_screen.dart';
 
 class UserTypeSelectorView extends StatelessWidget {
   const UserTypeSelectorView({super.key});
@@ -29,18 +30,24 @@ class UserTypeSelectorView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // App Logo/Title with Moroccan-inspired design
+                  // App Logo/Title with enhanced design
                   Container(
-                    width: 140,
-                    height: 140,
+                    width: 150,
+                    height: 150,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(25),
+                      borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: TColor.cardShadow,
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
+                          color: Colors.black.withValues(alpha: 0.2),
+                          blurRadius: 30,
+                          offset: const Offset(0, 12),
+                          spreadRadius: 3,
+                        ),
+                        BoxShadow(
+                          color: TColor.secondary.withValues(alpha: 0.25),
+                          blurRadius: 35,
+                          offset: const Offset(0, 15),
                         ),
                       ],
                     ),
@@ -49,46 +56,63 @@ class UserTypeSelectorView extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.restaurant_menu,
-                          size: 50,
+                          size: 60,
                           color: TColor.primary,
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 10),
                         Text(
                           "FoodEx",
                           style: TextStyle(
                             color: TColor.primary,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 0.5,
                           ),
                         ),
                       ],
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 35),
 
                   Text(
                     "FoodEx",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 36,
-                      fontWeight: FontWeight.w800,
+                      fontSize: 42,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 1.2,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withValues(alpha: 0.25),
+                          offset: const Offset(0, 4),
+                          blurRadius: 12,
+                        ),
+                      ],
                     ),
                   ),
 
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 12),
 
                   Text(
                     "Community-driven food marketplace\nConnect with local home chefs",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.white.withValues(alpha: 0.9),
+                      color: Colors.white.withValues(alpha: 0.95),
                       fontSize: 16,
-                      height: 1.4,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                      shadows: [
+                        Shadow(
+                          color: Colors.black.withValues(alpha: 0.2),
+                          offset: const Offset(0, 2),
+                          blurRadius: 8,
+                        ),
+                      ],
                     ),
                   ),
 
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 50),
 
                   // Customer Button
                   _buildUserTypeButton(
@@ -113,7 +137,7 @@ class UserTypeSelectorView extends StatelessWidget {
                     },
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 18),
 
                   // Chef Button
                   _buildUserTypeButton(
@@ -138,7 +162,7 @@ class UserTypeSelectorView extends StatelessWidget {
                     },
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 18),
 
                   // Courier Button
                   _buildUserTypeButton(
@@ -160,6 +184,26 @@ class UserTypeSelectorView extends StatelessWidget {
                               builder: (context) => const DriverMainTabView()),
                         );
                       }
+                    },
+                  ),
+
+                  const SizedBox(height: 18),
+
+                  // Test Features Button
+                  _buildUserTypeButton(
+                    context,
+                    "🧪 Test Features",
+                    "Quick access to Inventory & Analytics",
+                    Icons.science,
+                    Colors.deepPurple,
+                    Colors.white,
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const TestNavigationScreen(),
+                        ),
+                      );
                     },
                   ),
 
@@ -192,76 +236,95 @@ class UserTypeSelectorView extends StatelessWidget {
     Color textColor,
     VoidCallback onTap,
   ) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(25),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: TColor.cardShadow,
-              blurRadius: 15,
-              offset: const Offset(0, 8),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              width: 65,
-              height: 65,
-              decoration: BoxDecoration(
-                color: textColor.withValues(alpha: 0.15),
-                borderRadius: BorderRadius.circular(18),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(25),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(24),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.2),
+                blurRadius: 20,
+                offset: const Offset(0, 10),
+                spreadRadius: 2,
               ),
-              child: Icon(
-                icon,
-                size: 32,
-                color: textColor,
+              BoxShadow(
+                color: backgroundColor.withValues(alpha: 0.3),
+                blurRadius: 25,
+                offset: const Offset(0, 12),
               ),
-            ),
-            const SizedBox(width: 20),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
+            ],
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(
+                  color: textColor.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: textColor.withValues(alpha: 0.15),
+                    width: 2,
                   ),
-                  const SizedBox(height: 6),
-                  Text(
-                    subtitle,
-                    style: TextStyle(
-                      color: textColor.withValues(alpha: 0.8),
-                      fontSize: 14,
-                      height: 1.3,
+                ),
+                child: Icon(
+                  icon,
+                  size: 38,
+                  color: textColor,
+                ),
+              ),
+              const SizedBox(width: 20),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 0.3,
+                      ),
                     ),
+                    const SizedBox(height: 6),
+                    Text(
+                      subtitle,
+                      style: TextStyle(
+                        color: textColor.withValues(alpha: 0.85),
+                        fontSize: 14,
+                        height: 1.3,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 45,
+                height: 45,
+                decoration: BoxDecoration(
+                  color: textColor.withValues(alpha: 0.2),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(
+                    color: textColor.withValues(alpha: 0.15),
+                    width: 1.5,
                   ),
-                ],
+                ),
+                child: Icon(
+                  Icons.arrow_forward,
+                  color: textColor,
+                  size: 24,
+                ),
               ),
-            ),
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                color: textColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                Icons.arrow_forward,
-                color: textColor.withValues(alpha: 0.8),
-                size: 20,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
