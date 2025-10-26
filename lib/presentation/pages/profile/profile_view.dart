@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
-import 'package:food_delivery/core/theme/color_extension.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../core/constants/routes.dart';
-import '../../../core/network/service_call.dart';
+import 'package:food_delivery/presentation/pages/login/login_view.dart';
+import 'package:food_delivery/presentation/pages/more/more_view.dart';
+import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
+import 'package:food_delivery/presentation/pages/more/my_order_view.dart';
+import 'package:food_delivery/core/network/service_call.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -21,14 +20,30 @@ class ProfileView extends StatelessWidget {
             leading: const Icon(Icons.wallet),
             title: const Text('My Wallet'),
             onTap: () {
-              // TODO: Navigate to Wallet screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const WalletView()),
+              );
             },
           ),
           ListTile(
             leading: const Icon(Icons.shopping_bag),
             title: const Text('My Orders'),
             onTap: () {
-              // TODO: Navigate to My Orders screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MyOrderView()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.more_horiz),
+            title: const Text('More'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MoreView()),
+              );
             },
           ),
           ListTile(
@@ -36,6 +51,10 @@ class ProfileView extends StatelessWidget {
             title: const Text('Logout'),
             onTap: () {
               ServiceCall.logout();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginView()),
+              );
             },
           ),
         ],

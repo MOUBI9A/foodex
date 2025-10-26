@@ -30,7 +30,7 @@ flutter config --enable-web
 case $MODE in
     "release")
         echo "🏗️ Building web app (Release)..."
-        flutter build web --release --web-renderer canvaskit
+        flutter build web --release
         echo "✅ Web app built: build/web"
         echo ""
         echo "📡 Serving web app locally..."
@@ -40,12 +40,12 @@ case $MODE in
     "profile")
         echo "📊 Running web app (Profile mode)..."
         echo "🌐 Opening: http://localhost:$PORT"
-        flutter run -d chrome --profile --web-port=$PORT --web-renderer canvaskit
+        flutter run -d web-server --profile --web-port=$PORT
         ;;
     *)
         echo "🐛 Running web app (Debug mode)..."
         echo "🌐 Opening: http://localhost:$PORT"
-        flutter run -d chrome --debug --hot --web-port=$PORT --web-renderer canvaskit
+        flutter run -d web-server --debug --hot --web-port=$PORT
         ;;
 esac
 
