@@ -371,7 +371,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                               notificationsEnabled = value;
                             });
                           },
-                          activeColor: TColor.primary,
+                          activeThumbColor: TColor.primary,
                         ),
                       ),
                       _buildSettingRow(
@@ -385,7 +385,7 @@ class _ChefProfileViewState extends State<ChefProfileView> {
                               autoAcceptOrders = value;
                             });
                           },
-                          activeColor: TColor.primary,
+                          activeThumbColor: TColor.primary,
                         ),
                       ),
                     ],

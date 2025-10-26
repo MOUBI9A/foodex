@@ -7,6 +7,8 @@ import 'package:food_delivery/core/utils/locator.dart';
 import 'package:food_delivery/core/constants/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'core/network/my_http_overrides.dart';
 import 'core/services/local_db_service.dart';
@@ -16,6 +18,9 @@ void main() async {
   setUpLocator();
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   prefs = await SharedPreferences.getInstance();
   
   // Initialize Hive for offline-first persistence

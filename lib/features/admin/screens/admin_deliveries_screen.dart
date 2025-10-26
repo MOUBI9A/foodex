@@ -44,7 +44,7 @@ class _AdminDeliveriesScreenState extends ConsumerState<AdminDeliveriesScreen> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: DataTable(
-                  headingRowColor: MaterialStatePropertyAll(AppColors.primary.withValues(alpha: 0.1)),
+                  headingRowColor: WidgetStatePropertyAll(AppColors.primary.withValues(alpha: 0.1)),
                   columns: const [
                     DataColumn(label: Text('Commande')),
                     DataColumn(label: Text('Chef / Pickup')),

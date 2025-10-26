@@ -438,7 +438,7 @@ class _TopUpDialogState extends State<TopUpDialog> {
             ),
             const SizedBox(height: 10),
             DropdownButtonFormField<PaymentMethod>(
-              value: _selectedMethod,
+              initialValue: _selectedMethod,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),

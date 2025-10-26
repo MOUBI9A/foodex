@@ -332,7 +332,7 @@ class _ChefMenuViewState extends State<ChefMenuView>
                           dish['available'] = value;
                         });
                       },
-                      activeColor: TColor.primary,
+                      activeThumbColor: TColor.primary,
                     ),
                   ],
                 ),

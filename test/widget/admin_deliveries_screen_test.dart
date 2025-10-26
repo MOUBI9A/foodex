@@ -9,7 +9,7 @@ import 'package:food_delivery/data/models/courier.dart';
 import 'package:food_delivery/data/repositories/courier_repository.dart';
 
 class _StubOrderNotifier extends OrderListNotifier {
-  _StubOrderNotifier({required Ref ref, required List<Order> seed}) : super(ref: ref) {
+  _StubOrderNotifier({required super.ref, required List<Order> seed}) {
     state = seed;
   }
 }

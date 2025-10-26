@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/models/dish.dart';
-import '../../../data/models/ingredient.dart';
 import '../../../data/models/chef_profile.dart';
 import '../../../core/providers/dish_providers.dart';
 import '../../../core/providers/customer_preference_provider.dart';

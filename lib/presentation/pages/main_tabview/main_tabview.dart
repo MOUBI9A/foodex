@@ -4,9 +4,9 @@ import 'package:food_delivery/presentation/widgets/tab_button.dart';
 
 import '../home/home_view.dart';
 import '../menu/menu_view.dart';
-import '../more/more_view.dart';
 import '../offer/offer_view.dart';
 import '../profile/profile_view.dart';
+import '../more/more_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -101,11 +101,10 @@ class _MainTabViewState extends State<MainTabView> {
                       title: "More",
                       icon: "assets/images/tab_more.png",
                       onTap: () {
-                        if (selctTab != 4) {
-                          selctTab = 4;
-                          selectPageView = const MoreView();
-                        }
-                        if (mounted) setState(() {});
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MoreView()),
+                        );
                       },
                       isSelected: selctTab == 4),
                 ],

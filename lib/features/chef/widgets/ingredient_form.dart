@@ -76,7 +76,7 @@ class _IngredientFormState extends State<IngredientForm> {
                 onSaved: (v) => category = v!,
               ),
               DropdownButtonFormField<String>(
-                value: storageType,
+                initialValue: storageType,
                 items: const [
                   DropdownMenuItem(value: 'dry', child: Text('Dry')),
                   DropdownMenuItem(value: 'fridge', child: Text('Fridge')),

@@ -3,87 +3,76 @@ import 'package:go_router/go_router.dart';
 import 'package:food_delivery/presentation/pages/more/about_us_view.dart';
 import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
 import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
-import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
 import 'package:food_delivery/core/constants/routes.dart';
 
 import 'package:food_delivery/core/theme/color_extension.dart';
-import 'package:food_delivery/core/network/service_call.dart';
 import 'my_order_view.dart';
 import 'notification_view.dart';
 
-class MoreView extends StatefulWidget {
+class MoreView extends StatelessWidget {
   const MoreView({super.key});
 
   @override
-  State<MoreView> createState() => _MoreViewState();
-}
-
-class _MoreViewState extends State<MoreView> {
-  List moreArr = [
-    {
-      "index": "1",
-      "name": "My Wallet",
-  "image": "assets/images/more_payment.png",
-      "base": 0
-    },
-    {
-      "index": "2",
-      "name": "Payment Details",
-  "image": "assets/images/more_payment.png",
-      "base": 0
-    },
-    {
-      "index": "3",
-      "name": "My Orders",
-  "image": "assets/images/more_my_order.png",
-      "base": 0
-    },
-    {
-      "index": "4",
-      "name": "Notifications",
-  "image": "assets/images/more_notification.png",
-      "base": 15
-    },
-    {
-      "index": "5",
-      "name": "Inbox",
-  "image": "assets/images/more_inbox.png",
-      "base": 0
-    },
-    {
-      "index": "6",
-      "name": "About Us",
-  "image": "assets/images/more_info.png",
-      "base": 0
-    },
-    {
-      "index": "7",
-      "name": "Taste Profile",
-      "image": "assets/images/more_info.png",
-      "base": 0
-    },
-    {
-      "index": "8",
-      "name": "Recommendations",
-      "image": "assets/images/more_info.png",
-      "base": 0
-    },
-    {
-      "index": "9",
-      "name": "Suivi en direct",
-      "image": "assets/images/more_info.png",
-      "base": 0
-    },
-    {
-      "index": "10",
-      "name": "Logout",
-      "image": "assets/images/more_info.png",
-      "base": 0
-    },
-  ];
-
-  @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> moreArr = [
+      {
+        "name": "Payment Details",
+        "image": "assets/images/more_payment.png",
+        "onTap": () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const PaymentDetailsView()),
+        ),
+      },
+      {
+        "name": "My Orders",
+        "image": "assets/images/more_my_order.png",
+        "onTap": () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MyOrderView()),
+        ),
+      },
+      {
+        "name": "Notifications",
+        "image": "assets/images/more_notification.png",
+        "base": 15,
+        "onTap": () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const NotificationsView()),
+        ),
+      },
+      {
+        "name": "Inbox",
+        "image": "assets/images/more_inbox.png",
+        "onTap": () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const InboxView()),
+        ),
+      },
+      {
+        "name": "About Us",
+        "image": "assets/images/more_info.png",
+        "onTap": () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const AboutUsView()),
+        ),
+      },
+      {
+        "name": "Taste Profile",
+        "image": "assets/images/more_info.png",
+        "onTap": () => context.push(AppRouteNames.customerTasteProfile),
+      },
+      {
+        "name": "Recommendations",
+        "image": "assets/images/more_info.png",
+        "onTap": () => context.push(AppRouteNames.customerRecommendations),
+      },
+      {
+        "name": "Suivi en direct",
+        "image": "assets/images/more_info.png",
+        "onTap": () => context.push(AppRouteNames.customerOrderTracking),
+      },
+    ];
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -128,68 +117,10 @@ class _MoreViewState extends State<MoreView> {
                   shrinkWrap: true,
                   itemCount: moreArr.length,
                   itemBuilder: (context, index) {
-                    var mObj = moreArr[index] as Map? ?? {};
+                    var mObj = moreArr[index];
                     var countBase = mObj["base"] as int? ?? 0;
                     return InkWell(
-                      onTap: () {
-                        switch (mObj["index"].toString()) {
-                          case "1":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const WalletView()));
-                            break;
-
-                          case "2":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const PaymentDetailsView()));
-
-                            break;
-
-                          case "3":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MyOrderView()));
-                            break;
-                          case "4":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const NotificationsView()));
-                            break;
-                          case "5":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const InboxView()));
-                            break;
-                          case "6":
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const AboutUsView()));
-                            break;
-                          case "7":
-                            context.push(AppRouteNames.customerTasteProfile);
-                            break;
-                          case "8":
-                            context.push(AppRouteNames.customerRecommendations);
-                            break;
-                          case "9":
-                            context.push(AppRouteNames.customerOrderTracking);
-                            break;
-                          case "10":
-                            ServiceCall.logout();
-                            break;
-
-                          default:
-                        }
-                      },
+                      onTap: mObj["onTap"],
                       child: Container(
                         margin: const EdgeInsets.symmetric(
                             vertical: 8, horizontal: 20),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
-import 'package:food_delivery/presentation/widgets/round_textfield.dart';
-import 'package:food_delivery/presentation/widgets/modern_card.dart';
 
 import 'package:food_delivery/core/constants/globs.dart';
 import 'package:food_delivery/core/network/service_call.dart';

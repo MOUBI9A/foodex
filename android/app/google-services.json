@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "276241359851",
+    "project_id": "foodex-78a88",
+    "storage_bucket": "foodex-78a88.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276241359851:android:8dfd84241973798542efae",
+        "android_client_info": {
+          "package_name": "com.codeforany.food_delivery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZjQKJkdD6_eF2LtuDlsL8xZK3TLSfmTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276241359851:android:94506e944ba468f042efae",
+        "android_client_info": {
+          "package_name": "com.example.foodex_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZjQKJkdD6_eF2LtuDlsL8xZK3TLSfmTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
