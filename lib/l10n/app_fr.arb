@@ -1,0 +1,110 @@
+{
+  "@@locale": "fr",
+  "appTitle": "FoodEx",
+  "loginHeroTitle": "Connectez-vous à FoodEx",
+  "loginHeroSubtitle": "Des repas faits maison livrés directement chez vous.",
+  "roleCustomer": "Client",
+  "roleCustomerCaption": "Découvrez les repas des chefs locaux",
+  "roleChef": "Chef",
+  "roleChefCaption": "Gérez commandes et menus",
+  "roleDriver": "Livreur",
+  "roleDriverCaption": "Suivez vos livraisons",
+  "loginWelcomeBack": "Bon retour parmi nous, {role}",
+  "@loginWelcomeBack": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "loginFormSubtitle": "Connectez-vous pour continuer à commander et suivre vos repas.",
+  "emailLabel": "Adresse e-mail",
+  "emailHint": "chef@foodex.com",
+  "errorEmailRequired": "Saisissez votre adresse e-mail",
+  "errorEmailInvalid": "Entrez un e-mail valide",
+  "passwordLabel": "Mot de passe",
+  "passwordHint": "••••••••",
+  "errorPasswordLength": "Le mot de passe doit contenir au moins 6 caractères",
+  "rememberMe": "Se souvenir de moi",
+  "forgotPassword": "Mot de passe oublié ?",
+  "actionLogin": "Se connecter",
+  "orContinueWith": "ou continuer avec",
+  "continueWithGoogle": "Continuer avec Google",
+  "continueWithFacebook": "Continuer avec Facebook",
+  "loginFooterPrompt": "Nouveau sur FoodEx ?",
+  "actionCreateAccount": "Créer un compte",
+  "signupTitle": "Créer un compte FoodEx",
+  "signupSubtitle": "Renseignez vos informations pour commander ou vendre vos plats.",
+  "fullNameLabel": "Nom complet",
+  "fullNameHint": "ex. Sara Amrani",
+  "errorNameRequired": "Veuillez saisir votre nom",
+  "mobileLabel": "Numéro de téléphone",
+  "mobileHint": "+212 6 00 00 00 00",
+  "errorMobileRequired": "Entrez votre numéro de téléphone",
+  "errorMobileLength": "Le numéro semble trop court",
+  "addressLabel": "Adresse principale",
+  "addressHint": "Appartement, rue, ville",
+  "errorAddressRequired": "Entrez votre adresse de livraison",
+  "confirmPasswordLabel": "Confirmez le mot de passe",
+  "confirmPasswordHint": "Répétez le mot de passe",
+  "errorConfirmPasswordRequired": "Confirmez votre mot de passe",
+  "errorPasswordMismatch": "Les mots de passe ne correspondent pas",
+  "termsAgreementPrefix": "J'accepte ",
+  "termsPolicyLink": "les Conditions et la Politique de confidentialité",
+  "errorAcceptTerms": "Veuillez accepter les Conditions et la Politique de confidentialité",
+  "signupAlreadyPrompt": "Vous avez déjà un compte ?",
+  "menuTitle": "Menu",
+  "menuSubtitle": "Parcourez les catégories créées par nos chefs locaux",
+  "menuSearchHint": "Rechercher un plat, un chef ou une ambiance",
+  "menuFilterAll": "Tous",
+  "menuFilterMeals": "Plats",
+  "menuFilterFamily": "Familial",
+  "menuFilterQuick": "Snacks",
+  "menuFilterBeverages": "Boissons",
+  "menuFilterDesserts": "Desserts",
+  "menuFilterPromotions": "Promotions",
+  "menuResultCurated": "{count} menus {filter} recommandés",
+  "@menuResultCurated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "filter": {
+        "type": "String"
+      }
+    }
+  },
+  "menuResultDefault": "Sélection mise à jour chaque jour",
+  "menuCategoriesCount": "{count} catégories",
+  "@menuCategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuEmptyTitle": "Aucun menu ne correspond à vos filtres",
+  "menuEmptyBody": "Essayez une autre ambiance ou réinitialisez votre recherche.",
+  "menuResetFilters": "Réinitialiser",
+  "menuChefPick": "Choix du chef",
+  "menuItemsCount": "{count} articles",
+  "@menuItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuItemsSearchHint": "Rechercher un plat",
+  "menuItemsEmptyTitle": "Aucun résultat pour votre recherche",
+  "menuItemsEmptyBody": "Essayez un autre ingrédient, goût ou chef.",
+  "deliverToLabel": "Livraison à",
+  "changeLocation": "Changer",
+  "deliveryLocationTitle": "Adresse de livraison",
+  "useCurrentLocation": "Utiliser ma position actuelle",
+  "useCurrentSubtitle": "Demander le GPS et détecter l'adresse",
+  "chooseOnMap": "Choisir sur la carte",
+  "chooseOnMapSubtitle": "Placez un repère pour sélectionner l'endroit",
+  "deliverHere": "Livrer ici",
+  "deliveryLocationSheetDescription": "Sélectionnez comment nous livrer"
+}

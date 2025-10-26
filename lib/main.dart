@@ -8,6 +8,7 @@ import 'package:food_delivery/core/constants/routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:food_delivery/l10n/generated/app_localizations.dart';
 import 'firebase_options.dart';
 
 import 'core/network/my_http_overrides.dart';
@@ -22,7 +23,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   prefs = await SharedPreferences.getInstance();
-  
+
   // Initialize Hive for offline-first persistence
   await LocalDbService.init();
 
@@ -49,7 +50,10 @@ class FoodExApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'FOODEx',
+      onGenerateTitle: (context) =>
+          AppLocalizations.of(context)?.appTitle ?? 'FoodEx',
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Metropolis",

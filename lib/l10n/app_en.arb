@@ -1,0 +1,110 @@
+{
+  "@@locale": "en",
+  "appTitle": "FoodEx",
+  "loginHeroTitle": "Sign in to FoodEx",
+  "loginHeroSubtitle": "Fresh meals from local home chefs, delivered to your door.",
+  "roleCustomer": "Customer",
+  "roleCustomerCaption": "Discover home-chef meals",
+  "roleChef": "Chef",
+  "roleChefCaption": "Manage orders & menus",
+  "roleDriver": "Driver",
+  "roleDriverCaption": "Track deliveries",
+  "loginWelcomeBack": "Welcome back, {role}",
+  "@loginWelcomeBack": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "loginFormSubtitle": "Sign in to continue ordering and tracking meals.",
+  "emailLabel": "Email address",
+  "emailHint": "chef@foodex.com",
+  "errorEmailRequired": "Enter your email address",
+  "errorEmailInvalid": "Enter a valid email",
+  "passwordLabel": "Password",
+  "passwordHint": "••••••••",
+  "errorPasswordLength": "Password must be at least 6 characters",
+  "rememberMe": "Remember me",
+  "forgotPassword": "Forgot password?",
+  "actionLogin": "Login",
+  "orContinueWith": "or continue with",
+  "continueWithGoogle": "Continue with Google",
+  "continueWithFacebook": "Continue with Facebook",
+  "loginFooterPrompt": "New to FoodEx?",
+  "actionCreateAccount": "Create an account",
+  "signupTitle": "Create a FoodEx account",
+  "signupSubtitle": "Fill in your information to start ordering or selling meals.",
+  "fullNameLabel": "Full name",
+  "fullNameHint": "e.g. Sara Amrani",
+  "errorNameRequired": "Please enter your name",
+  "mobileLabel": "Mobile number",
+  "mobileHint": "+212 6 00 00 00 00",
+  "errorMobileRequired": "Enter your phone number",
+  "errorMobileLength": "Phone number looks too short",
+  "addressLabel": "Primary address",
+  "addressHint": "Apartment, street, city",
+  "errorAddressRequired": "Enter your delivery address",
+  "confirmPasswordLabel": "Confirm password",
+  "confirmPasswordHint": "Repeat password",
+  "errorConfirmPasswordRequired": "Confirm your password",
+  "errorPasswordMismatch": "Passwords do not match",
+  "termsAgreementPrefix": "I agree to the ",
+  "termsPolicyLink": "Terms & Privacy Policy",
+  "errorAcceptTerms": "Please accept the Terms & Privacy Policy",
+  "signupAlreadyPrompt": "Already have an account?",
+  "menuTitle": "Menu",
+  "menuSubtitle": "Browse categories curated by local chefs",
+  "menuSearchHint": "Search food, chefs or vibes",
+  "menuFilterAll": "All",
+  "menuFilterMeals": "Meals",
+  "menuFilterFamily": "Family",
+  "menuFilterQuick": "Quick bites",
+  "menuFilterBeverages": "Beverages",
+  "menuFilterDesserts": "Desserts",
+  "menuFilterPromotions": "Promotions",
+  "menuResultCurated": "{count} curated {filter} menus",
+  "@menuResultCurated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "filter": {
+        "type": "String"
+      }
+    }
+  },
+  "menuResultDefault": "Hand-picked & refreshed daily",
+  "menuCategoriesCount": "{count} categories",
+  "@menuCategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuEmptyTitle": "No menus match your filters",
+  "menuEmptyBody": "Try a different vibe or reset your search to browse everything again.",
+  "menuResetFilters": "Reset filters",
+  "menuChefPick": "Chef pick",
+  "menuItemsCount": "{count} items",
+  "@menuItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuItemsSearchHint": "Search food",
+  "menuItemsEmptyTitle": "No items match your search",
+  "menuItemsEmptyBody": "Try another flavor, ingredient or chef name."
+  ,"deliverToLabel": "Delivering to",
+  "changeLocation": "Change",
+  "deliveryLocationTitle": "Delivery location",
+  "useCurrentLocation": "Use my current location",
+  "useCurrentSubtitle": "Ask GPS and auto-detect address",
+  "chooseOnMap": "Choose on map",
+  "chooseOnMapSubtitle": "Drop a pin to select the spot",
+  "deliverHere": "Deliver here",
+  "deliveryLocationSheetDescription": "Select how you'd like us to deliver"
+}

@@ -1,0 +1,110 @@
+{
+  "@@locale": "ar",
+  "appTitle": "فود إكس",
+  "loginHeroTitle": "سجّل الدخول إلى فود إكس",
+  "loginHeroSubtitle": "وجبات منزلية طازجة تصل إلى بابك.",
+  "roleCustomer": "عميل",
+  "roleCustomerCaption": "اكتشف وجبات الطهاة المحليين",
+  "roleChef": "طاهٍ",
+  "roleChefCaption": "أدر الطلبات وقوائم الطعام",
+  "roleDriver": "سائق توصيل",
+  "roleDriverCaption": "تتبع رحلات التوصيل",
+  "loginWelcomeBack": "مرحباً بعودتك يا {role}",
+  "@loginWelcomeBack": {
+    "placeholders": {
+      "role": {
+        "type": "String"
+      }
+    }
+  },
+  "loginFormSubtitle": "سجّل الدخول لمتابعة الطلبات وتتبع الشحنات.",
+  "emailLabel": "البريد الإلكتروني",
+  "emailHint": "chef@foodex.com",
+  "errorEmailRequired": "أدخل بريدك الإلكتروني",
+  "errorEmailInvalid": "البريد الإلكتروني غير صالح",
+  "passwordLabel": "كلمة المرور",
+  "passwordHint": "••••••••",
+  "errorPasswordLength": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
+  "rememberMe": "تذكرني",
+  "forgotPassword": "هل نسيت كلمة المرور؟",
+  "actionLogin": "تسجيل الدخول",
+  "orContinueWith": "أو المتابعة عبر",
+  "continueWithGoogle": "المتابعة عبر جوجل",
+  "continueWithFacebook": "المتابعة عبر فيسبوك",
+  "loginFooterPrompt": "جديد في فود إكس؟",
+  "actionCreateAccount": "إنشاء حساب",
+  "signupTitle": "إنشاء حساب فود إكس",
+  "signupSubtitle": "املأ بياناتك لبدء الطلب أو بيع وجباتك.",
+  "fullNameLabel": "الاسم الكامل",
+  "fullNameHint": "مثال: سارة العمراني",
+  "errorNameRequired": "الرجاء إدخال الاسم",
+  "mobileLabel": "رقم الهاتف",
+  "mobileHint": "+212 6 00 00 00 00",
+  "errorMobileRequired": "أدخل رقم هاتفك",
+  "errorMobileLength": "رقم الهاتف قصير جداً",
+  "addressLabel": "العنوان الرئيسي",
+  "addressHint": "شقة، شارع، مدينة",
+  "errorAddressRequired": "أدخل عنوان التوصيل",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "confirmPasswordHint": "أعد كتابة كلمة المرور",
+  "errorConfirmPasswordRequired": "أكّد كلمة المرور",
+  "errorPasswordMismatch": "كلمتا المرور غير متطابقتين",
+  "termsAgreementPrefix": "أوافق على ",
+  "termsPolicyLink": "الشروط وسياسة الخصوصية",
+  "errorAcceptTerms": "يرجى قبول الشروط وسياسة الخصوصية",
+  "signupAlreadyPrompt": "لديك حساب بالفعل؟",
+  "menuTitle": "القائمة",
+  "menuSubtitle": "استكشف الفئات المختارة من طهاتنا المحليين",
+  "menuSearchHint": "ابحث عن طبق أو طاهٍ أو مزاج",
+  "menuFilterAll": "الكل",
+  "menuFilterMeals": "وجبات",
+  "menuFilterFamily": "عائلي",
+  "menuFilterQuick": "سناكس",
+  "menuFilterBeverages": "مشروبات",
+  "menuFilterDesserts": "حلويات",
+  "menuFilterPromotions": "عروض",
+  "menuResultCurated": "{count} قوائم {filter} مختارة",
+  "@menuResultCurated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "filter": {
+        "type": "String"
+      }
+    }
+  },
+  "menuResultDefault": "اختيارات متجددة يومياً",
+  "menuCategoriesCount": "{count} فئات",
+  "@menuCategoriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuEmptyTitle": "لا توجد قوائم مطابقة للمرشحات",
+  "menuEmptyBody": "جرّب مزاجاً مختلفاً أو أعد التعيين للعرض من جديد.",
+  "menuResetFilters": "إعادة التعيين",
+  "menuChefPick": "اختيار الطاهي",
+  "menuItemsCount": "{count} أصناف",
+  "@menuItemsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "menuItemsSearchHint": "ابحث عن وجبة",
+  "menuItemsEmptyTitle": "لا توجد أصناف مطابقة",
+  "menuItemsEmptyBody": "جرّب نكهة أو مكوناً أو طاهياً آخر.",
+  "deliverToLabel": "التوصيل إلى",
+  "changeLocation": "تغيير",
+  "deliveryLocationTitle": "موقع التوصيل",
+  "useCurrentLocation": "استخدام موقعي الحالي",
+  "useCurrentSubtitle": "الحصول على الإحداثيات والعنوان تلقائيًا",
+  "chooseOnMap": "اختيار من الخريطة",
+  "chooseOnMapSubtitle": "ضع دبوسًا لتحديد المكان",
+  "deliverHere": "التوصيل هنا",
+  "deliveryLocationSheetDescription": "اختر طريقة تحديد موقع التوصيل"
+}

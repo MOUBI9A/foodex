@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
 
 import 'package:food_delivery/core/constants/globs.dart';
 import 'package:food_delivery/core/network/service_call.dart';
+import 'package:food_delivery/features/location/providers/delivery_location_provider.dart';
+import 'package:food_delivery/l10n/generated/app_localizations.dart';
 import 'package:food_delivery/presentation/widgets/category_cell.dart';
+import 'package:food_delivery/presentation/widgets/delivery_location_sheet.dart';
 import 'package:food_delivery/presentation/widgets/most_popular_cell.dart';
 import 'package:food_delivery/presentation/widgets/popular_resutaurant_row.dart';
 import 'package:food_delivery/presentation/widgets/recent_item_row.dart';
 import 'package:food_delivery/presentation/widgets/view_all_title_row.dart';
 import '../more/my_order_view.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  ConsumerState<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView>
+class _HomeViewState extends ConsumerState<HomeView>
     with SingleTickerProviderStateMixin {
   final TextEditingController txtSearch = TextEditingController();
   final FocusNode _searchFocus = FocusNode();
@@ -53,6 +57,7 @@ class _HomeViewState extends State<HomeView>
 
   @override
   void dispose() {
+    txtSearch.dispose();
     _searchFocus.dispose();
     _animationController.dispose();
     super.dispose();
@@ -205,6 +210,8 @@ class _HomeViewState extends State<HomeView>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final locationState = ref.watch(deliveryLocationProvider);
     final screenWidth = MediaQuery.of(context).size.width;
     final isDesktop = screenWidth > 800;
 
@@ -223,7 +230,11 @@ class _HomeViewState extends State<HomeView>
                 const SizedBox(height: 20),
 
                 // LOCATION CARD with better design
-                _buildLocationCard(context),
+                _buildLocationCard(
+                  context,
+                  locationState,
+                  l10n,
+                ),
 
                 const SizedBox(height: 24),
 
@@ -332,8 +343,7 @@ class _HomeViewState extends State<HomeView>
                         ),
                         Row(
                           children: [
-                            Icon(greetingIcon,
-                                color: Colors.white, size: 18),
+                            Icon(greetingIcon, color: Colors.white, size: 18),
                             const SizedBox(width: 6),
                             Text(
                               ServiceCall.userPayload[KKey.name] ?? "Guest",
@@ -417,7 +427,16 @@ class _HomeViewState extends State<HomeView>
 
   // PSYCHOLOGY: Clarity reduces cognitive load
   // UX: Easy-to-tap, clear visual hierarchy
-  Widget _buildLocationCard(BuildContext context) {
+  Widget _buildLocationCard(
+    BuildContext context,
+    DeliveryLocationState locationState,
+    AppLocalizations l10n,
+  ) {
+    final location = locationState.location;
+    final locationLabel = location?.label ?? l10n.useCurrentLocation;
+    final locationAddress = location?.formattedAddress.isNotEmpty == true
+        ? location!.formattedAddress
+        : l10n.useCurrentSubtitle;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
@@ -454,7 +473,7 @@ class _HomeViewState extends State<HomeView>
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Delivering to",
+                    l10n.deliverToLabel,
                     style: TextStyle(
                       color: TColor.secondaryText.withOpacity(0.6),
                       fontSize: 12,
@@ -463,38 +482,53 @@ class _HomeViewState extends State<HomeView>
                   const SizedBox(height: 4),
                   Row(
                     children: [
-                      Text(
-                        "Current Location",
-                        style: TextStyle(
-                          color: TColor.primaryText,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w800,
+                      Expanded(
+                        child: Text(
+                          locationLabel,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            color: TColor.primaryText,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ),
-                      const SizedBox(width: 6),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10, vertical: 4),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFFFF3E0),
-                          borderRadius: BorderRadius.circular(12),
+                      const SizedBox(width: 8),
+                      TextButton.icon(
+                        style: TextButton.styleFrom(
+                          backgroundColor: const Color(0xFFFFF3E0),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 4),
+                          minimumSize: Size.zero,
+                          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.explore, size: 14, color: TColor.primary),
-                            const SizedBox(width: 4),
-                            Text(
-                              "Change",
-                              style: TextStyle(
-                                color: TColor.primary,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
+                        onPressed: _openLocationSheet,
+                        icon: Icon(Icons.edit_location_alt,
+                            size: 16, color: TColor.primary),
+                        label: Text(
+                          l10n.changeLocation,
+                          style: TextStyle(
+                            color: TColor.primary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    locationAddress,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: TColor.secondaryText,
+                      fontSize: 13,
+                    ),
                   ),
                 ],
               ),
@@ -503,6 +537,24 @@ class _HomeViewState extends State<HomeView>
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> _openLocationSheet() async {
+    if (!mounted) return;
+    await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return Container(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+          ),
+          child: const DeliveryLocationSheet(),
+        );
+      },
     );
   }
 
@@ -570,7 +622,8 @@ class _HomeViewState extends State<HomeView>
           final story = storyArr[index];
           return Container(
             width: 250,
-            margin: EdgeInsets.only(right: index == storyArr.length - 1 ? 0 : 16),
+            margin:
+                EdgeInsets.only(right: index == storyArr.length - 1 ? 0 : 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
               boxShadow: [
@@ -772,7 +825,8 @@ class _HomeViewState extends State<HomeView>
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.32, // 32% of screen height
+          height:
+              MediaQuery.of(context).size.height * 0.32, // 32% of screen height
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -884,7 +938,8 @@ class _HomeViewState extends State<HomeView>
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.29, // 29% of screen height
+          height:
+              MediaQuery.of(context).size.height * 0.29, // 29% of screen height
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             scrollDirection: Axis.horizontal,
