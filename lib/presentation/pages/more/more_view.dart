@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:food_delivery/presentation/pages/more/about_us_view.dart';
-import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
-import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
-import 'package:food_delivery/core/constants/routes.dart';
+import 'package:food_delivery/core/network/service_call.dart';
+import 'package:food_delivery/presentation/pages/login/login_view.dart';
+import 'package:food_delivery/presentation/pages/profile/support_faq_view.dart';
 
 import 'package:food_delivery/core/theme/color_extension.dart';
-import 'my_order_view.dart';
-import 'notification_view.dart';
 
 class MoreView extends StatelessWidget {
   const MoreView({super.key});
@@ -16,60 +13,45 @@ class MoreView extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> moreArr = [
       {
-        "name": "Payment Details",
-        "image": "assets/images/more_payment.png",
-        "onTap": () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const PaymentDetailsView()),
-        ),
-      },
-      {
-        "name": "My Orders",
-        "image": "assets/images/more_my_order.png",
-        "onTap": () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const MyOrderView()),
-        ),
-      },
-      {
-        "name": "Notifications",
-        "image": "assets/images/more_notification.png",
-        "base": 15,
-        "onTap": () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const NotificationsView()),
-        ),
-      },
-      {
-        "name": "Inbox",
-        "image": "assets/images/more_inbox.png",
-        "onTap": () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const InboxView()),
-        ),
-      },
-      {
         "name": "About Us",
         "image": "assets/images/more_info.png",
+        "subtitle": "Learn more about FoodEx",
         "onTap": () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const AboutUsView()),
-        ),
+              context,
+              MaterialPageRoute(builder: (context) => const AboutUsView()),
+            ),
       },
       {
-        "name": "Taste Profile",
-        "image": "assets/images/more_info.png",
-        "onTap": () => context.push(AppRouteNames.customerTasteProfile),
+        "name": "Help / Support",
+        "image": "assets/images/more_inbox.png",
+        "subtitle": "FAQs and customer care",
+        "onTap": () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const SupportFaqView()),
+            ),
       },
       {
-        "name": "Recommendations",
+        "name": "Legal & Policies",
         "image": "assets/images/more_info.png",
-        "onTap": () => context.push(AppRouteNames.customerRecommendations),
+        "subtitle": "Terms, privacy, community rules",
+        "onTap": () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AboutUsView()),
+            ),
       },
       {
-        "name": "Suivi en direct",
+        "name": "Logout",
         "image": "assets/images/more_info.png",
-        "onTap": () => context.push(AppRouteNames.customerOrderTracking),
+        "subtitle": "Return to login",
+        "isDanger": true,
+        "onTap": () {
+          ServiceCall.logout();
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (_) => const LoginView()),
+            (route) => false,
+          );
+        },
       },
     ];
 
@@ -80,129 +62,95 @@ class MoreView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(
-                height: 46,
-              ),
+              const SizedBox(height: 46),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "More",
                       style: TextStyle(
-                          color: TColor.primaryText,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MyOrderView()));
-                      },
-                      icon: Image.asset(
-                        "assets/images/shopping_cart.png",
-                        width: 25,
-                        height: 25,
+                        color: TColor.primaryText,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
                       ),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      "Looking for account settings? Visit the Profile tab.",
+                      style:
+                          TextStyle(color: TColor.secondaryText, fontSize: 13),
                     ),
                   ],
                 ),
               ),
+              const SizedBox(height: 12),
               ListView.builder(
-                  padding: EdgeInsets.zero,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: moreArr.length,
-                  itemBuilder: (context, index) {
-                    var mObj = moreArr[index];
-                    var countBase = mObj["base"] as int? ?? 0;
-                    return InkWell(
-                      onTap: mObj["onTap"],
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 20),
-                        child: Stack(
-                          alignment: Alignment.centerRight,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 12, horizontal: 12),
-                              decoration: BoxDecoration(
-                                  color: TColor.textfield,
-                                  borderRadius: BorderRadius.circular(5)),
-                              margin: const EdgeInsets.only(right: 15),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: 50,
-                                    height: 50,
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        color: TColor.placeholder,
-                                        borderRadius:
-                                            BorderRadius.circular(25)),
-                                    alignment: Alignment.center,
-                                    child: Image.asset(mObj["image"].toString(),
-                                        width: 25,
-                                        height: 25,
-                                        fit: BoxFit.contain),
-                                  ),
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      mObj["name"].toString(),
-                                      style: TextStyle(
-                                          color: TColor.primaryText,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 15,
-                                  ),
-                                  if (countBase > 0)
-                                    Container(
-                                      padding: const EdgeInsets.all(4),
-                                      decoration: BoxDecoration(
-                                          color: Colors.red,
-                                          borderRadius:
-                                              BorderRadius.circular(12.5)),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        countBase.toString(),
-                                        style: TextStyle(
-                                            color: TColor.white,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(8),
-                              decoration: BoxDecoration(
-                                  color: TColor.textfield,
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Image.asset("assets/images/btn_next.png",
-                                  width: 10,
-                                  height: 10,
-                                  color: TColor.primaryText),
-                            ),
-                          ],
-                        ),
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: moreArr.length,
+                itemBuilder: (context, index) {
+                  final item = moreArr[index];
+                  final bool isDanger = item['isDanger'] as bool? ?? false;
+                  return InkWell(
+                    onTap: item['onTap'] as void Function()?,
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 20),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                            color: TColor.cardShadow,
+                            blurRadius: 12,
+                            offset: const Offset(0, 6),
+                          ),
+                        ],
                       ),
-                    );
-                  }),
+                      child: Row(
+                        children: [
+                          Container(
+                            width: 48,
+                            height: 48,
+                            decoration: BoxDecoration(
+                              color: TColor.textfield,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Image.asset(item['image'] as String),
+                          ),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  item['name'] as String,
+                                  style: TextStyle(
+                                    color: isDanger
+                                        ? TColor.error
+                                        : TColor.primaryText,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  item['subtitle'] as String,
+                                  style: TextStyle(color: TColor.secondaryText),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const Icon(Icons.chevron_right),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
               const SizedBox(height: 120),
             ],
           ),

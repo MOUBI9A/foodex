@@ -26,7 +26,8 @@ class ActiveOrderStatus {
   final bool hasActiveOrder;
   final String statusLabel;
 
-  const ActiveOrderStatus({required this.hasActiveOrder, required this.statusLabel});
+  const ActiveOrderStatus(
+      {required this.hasActiveOrder, required this.statusLabel});
 }
 
 final activeOrderStatusProvider = Provider<ActiveOrderStatus>((ref) {

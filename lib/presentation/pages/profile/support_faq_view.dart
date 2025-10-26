@@ -9,11 +9,13 @@ class SupportFaqView extends StatelessWidget {
     final faqs = [
       {
         'question': 'How do I report a delivery issue?',
-        'answer': 'Open live tracking, tap “Need help”, or email support@foodex.com.'
+        'answer':
+            'Open live tracking, tap “Need help”, or email support@foodex.com.'
       },
       {
         'question': 'Can I save multiple addresses?',
-        'answer': 'Yes, open the profile header and add additional delivery spots.'
+        'answer':
+            'Yes, open the profile header and add additional delivery spots.'
       },
     ];
 
