@@ -124,7 +124,7 @@ class _ChefHomeViewState extends State<ChefHomeView> {
                                 isKitchenOpen = value;
                               });
                             },
-                            activeThumbColor: TColor.primary,
+                            thumbColor: WidgetStatePropertyAll(TColor.primary),
                           ),
                         ],
                       ),

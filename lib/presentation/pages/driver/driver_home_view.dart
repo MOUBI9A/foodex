@@ -120,7 +120,7 @@ class _DriverHomeViewState extends State<DriverHomeView> {
                                 isOnline = value;
                               });
                             },
-                            activeThumbColor: TColor.primary,
+                            thumbColor: WidgetStatePropertyAll(TColor.primary),
                           ),
                         ],
                       ),
