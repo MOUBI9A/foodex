@@ -1,202 +1,131 @@
-# 🍽️ FoodEx - Community Food Marketplace
+# 🍽️ FoodEx – Community Food Marketplace
 
-[![Flutter](https://img.shields.io/badge/Flutter-3.32.5+-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Dart](https://img.shields.io/badge/Dart-3.8.1+-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.24%2B-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.4%2B-0175C2?style=for-the-badge&logo=dart&logoColor=white)](https://dart.dev)
 [![Android](https://img.shields.io/badge/Android-Ready-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com)
 [![iOS](https://img.shields.io/badge/iOS-Tested-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
-[![Web](https://img.shields.io/badge/Web-Live%20Demo-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://web.dev/progressive-web-apps/)
-[![macOS](https://img.shields.io/badge/macOS-Native-000000?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/macos/)
-[![Windows](https://img.shields.io/badge/Windows-Native-0078D4?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/en-us/windows/apps/)
-[![Linux](https://img.shields.io/badge/Linux-Native-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://docs.flutter.dev/development/platform-integration/linux)
+[![Web](https://img.shields.io/badge/Web-PWA-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![Desktop](https://img.shields.io/badge/Desktop-macOS%2FWin%2FLinux-4C566A?style=for-the-badge&logo=flutter&logoColor=white)](https://docs.flutter.dev/platform-integration/desktop)
 
-> **A beautiful, multi-platform food delivery app connecting customers with local home chefs**  
-> *Designed with Moroccan-inspired aesthetics and modern Flutter Clean Architecture*
+FoodEx connects customers with local home chefs through a polished, multi-platform Flutter app inspired by Moroccan aesthetics. The project now runs on a unified Clean Architecture stack—legacy `lib/view/*` files have been removed so every screen lives under `lib/presentation/pages` or `lib/features`.
 
-## 📋 Documentation
+---
 
-- 📖 [Project Structure](docs/PROJECT_STRUCTURE.md) - Detailed architecture overview
-- 🚀 [Features Documentation](docs/FEATURES_DOCUMENTATION.md) - Complete feature list
-- 📊 [Final Documentation](docs/FINAL_DOCUMENTATION.md) - Project completion summary
-- 🚀 [Deployment Guide](docs/DEPLOYMENT.md) - Platform deployment instructions
+## ✨ Feature Highlights
+- **Customers:** curated menu browsing, secure wallet with MAD currency, order tracking, reviews, and personalized recommendations.
+- **Home Chefs:** menu/product management, live order queue, pantry inventory, analytics, and earnings dashboards.
+- **Delivery Drivers:** assignment queue, optimized routing, payout tracking, and availability toggles.
+- **Admins:** dashboard widgets for revenue, orders, health metrics, and system alerts (see `lib/features/admin`).
 
-## ✨ Features
+Extended feature descriptions live in [`docs/FEATURES_DOCUMENTATION.md`](docs/FEATURES_DOCUMENTATION.md).
 
-### 🏠 **Home Chefs**
-- Create and manage delicious meal offerings
-- Real-time order management system
-- Earnings tracking with detailed analytics
-- Professional chef profiles with ratings
+---
 
-### 👥 **Customers**
-- Browse local home chef offerings
-- Secure wallet system with MAD currency
-- Order tracking and delivery updates
-- Rating and review system
-
-### 🚚 **Delivery Drivers**
-- Optimized delivery route management
-- Real-time earnings dashboard
-- Order assignment system
-- Performance tracking
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Flutter 3.32.5+ 
-- Dart 3.8.1+
-- Your favorite IDE (VS Code, Android Studio, etc.)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/MOUBI9A/foodex.git
-cd foodex
-
-# Install dependencies
-flutter pub get
-
-# Run the app
-flutter run
-```
-
-### Platform-Specific Setup
-
-<details>
-<summary>📱 <strong>Mobile Development</strong></summary>
-
-**Android:**
-```bash
-flutter run -d android
-```
-
-**iOS:** (Tested ✅)
-```bash
-flutter run -d ios
-```
-</details>
-
-<details>
-<summary>🌐 <strong>Web Development</strong></summary>
-
-**Web:** (Live Demo Available ✅)
-```bash
-flutter run -d chrome
-```
-</details>
-
-```bash
-# Development
-flutter run -d chrome
-
-# Production build
-flutter build web --release
-```
-</details>
-
-<details>
-<summary>💻 <strong>Desktop Development</strong></summary>
-
-**macOS:**
-```bash
-flutter run -d macos
-```
-
-**Windows:**
-```bash
-flutter run -d windows
-```
-
-**Linux:**
-```bash
-flutter run -d linux
-```
-</details>
-
-## 🏗️ Multi-Platform Build
-
-Use our automated build script for all platforms:
-
-```bash
-# Build for all platforms
-./build_all_platforms.sh all
-
-# Build for specific platform
-./build_all_platforms.sh web
-./build_all_platforms.sh android
-./build_all_platforms.sh ios
-```
-
-## 🛠️ Architecture
-
-### **Project Structure**
+## 📁 Repository Layout
 ```
 lib/
-├── common/           # Shared utilities and extensions
-├── common_widget/    # Reusable UI components
-├── models/          # Data models
-├── services/        # Business logic and APIs
-└── view/           # UI screens and widgets
-    ├── chef/       # Chef-specific screens
-    ├── driver/     # Driver-specific screens
-    ├── login/      # Authentication screens
-    ├── more/       # Settings and additional features
-    └── wallet/     # Wallet and payment features
+├── core/            # Constants, themes, routing scaffolds, utilities
+├── data/            # DTOs, data sources, repositories, mock data
+├── domain/          # Entities + repository contracts
+├── features/        # Vertical feature slices (admin/chef/customer)
+├── presentation/    # Cross-role pages, widgets, and providers
+├── services/        # API, cache, websocket, and platform services
+└── main.dart        # App bootstrap and DI wiring
+
+docs/                # Project, deployment, and migration guides
+scripts/             # Import fixes, cleanup, and automation helpers
+tool/ci_checks.sh    # Aggregated lint/test runner for CI
+run-*.sh             # Platform-specific launch shortcuts
 ```
+> ✅ `lib/view/*` was retired in this clean-up—use the presentation or feature folders for UI work.
 
-### **Key Technologies**
-- **State Management:** Provider/SetState
-- **Navigation:** Flutter Navigator 2.0
-- **Networking:** HTTP with custom service layer
-- **Storage:** SharedPreferences
-- **Maps:** Google Maps integration
-- **Payments:** Multi-provider wallet system
+---
 
-## 💳 Wallet System
+## 🚀 Getting Started
+### Prerequisites
+- Flutter 3.24+ / Dart 3.4+ (`fvm` recommended for pinning)
+- Xcode 15+, Android Studio/SDK 34+, or desktop toolchains
+- A Firebase/REST backend or the included mock repositories
 
-FoodEx features a comprehensive wallet system with:
-- **MAD Currency Support** (Moroccan Dirham)
-- **Multiple Payment Methods** (Credit Card, PayPal, Cash)
-- **Transaction History** with detailed analytics
-- **Secure Payment Processing**
-- **Real-time Balance Updates**
-
-## 🎨 Design System
-
-### **Color Palette**
-- **Primary:** Modern orange tones inspired by Moroccan sunsets
-- **Secondary:** Warm earth tones and accent colors
-- **Typography:** Metropolis font family for modern readability
-
-### **UI Components**
-- Beautiful gradient backgrounds
-- Moroccan-inspired card designs
-- Smooth animations and transitions
-- Responsive layouts for all screen sizes
-
-## 🧪 Testing
-
+### Installation
 ```bash
-# Run all tests
-flutter test
-
-# Run with coverage
-flutter test --coverage
-
-# Integration tests
-flutter drive --target=test_driver/app.dart
+git clone https://github.com/MOUBI9A/foodex.git
+cd food_delivery_meal-main
+flutter pub get
 ```
 
-## 📱 Platform Support
+---
 
-| Platform | Status | Build Size | Notes |
-|----------|--------|------------|-------|
-| **Android** | ✅ Ready | ~25MB | Material Design |
-| **iOS** | ✅ Ready | ~30MB | Cupertino Design |
-| **Web** | ✅ PWA Ready | ~2MB | Progressive Web App |
-| **macOS** | ✅ Native | ~65MB | Desktop optimized |
-| **Windows** | ✅ Native | ~45MB | Windows 10+ |
-| **Linux** | ✅ Native | ~35MB | Ubuntu/Debian tested |
+## ▶️ Running the App
+| Target    | Command                                                                 |
+|-----------|--------------------------------------------------------------------------|
+| Android   | `flutter run -d android` or `./run-android.sh`                           |
+| iOS       | `flutter run -d ios` (requires `cd ios && pod install` the first time)   |
+| Web       | `flutter run -d chrome` or `./run-web.sh`                                |
+| macOS     | `flutter run -d macos` or `./run-macos.sh`                               |
+| Windows   | `flutter run -d windows` or `run-windows.bat`                            |
+| Linux     | `flutter run -d linux` or `./run-linux.sh`                               |
+
+For a one-stop multi-platform build:
+```bash
+./build_all_platforms.sh all   # or pass web/android/ios/macos/windows/linux
+```
+
+---
+
+## 🛠️ Architecture Snapshot
+- **Pattern:** Clean Architecture with explicit `core`, `data`, `domain`, `features`, and `presentation` layers.
+- **State:** Provider-based presenters plus emerging Riverpod providers where finer-grained reactivity is required.
+- **Navigation:** GoRouter scaffolding (`lib/core/routes/app_router.dart`) ready for full adoption; temporary `Navigator` routes live in `lib/core/constants/routes.dart`.
+- **Networking:** `dio` and `http` clients with websocket helpers, backed by environment configs in `lib/core`.
+- **Storage:** Hive for structured caches and SharedPreferences for lightweight persistence.
+- **Realtime & System Services:** `web_socket_channel`, `local_db_service.dart`, `api_service.dart`, and `service_locator.dart` handle IO + dependency injection.
+- **Design System:** Metropolis & Poppins fonts, `lib/core/theme(s)` for colors/spacing, and reusable widgets in `lib/presentation/widgets`.
+
+Detailed diagrams live in [`docs/PROJECT_STRUCTURE.md`](docs/PROJECT_STRUCTURE.md) and [`docs/MIGRATION.md`](docs/MIGRATION.md).
+
+---
+
+## ✅ Testing & Quality
+```bash
+flutter test                         # unit + widget tests
+flutter test --coverage              # with lcov output
+flutter drive --target=integration_test/test_app.dart   # integration/e2e
+dart run tool/ci_checks.sh           # lint + formatting + tests bundle
+```
+- Widget and provider suites live in `test/unit` and `test/widget`.
+- Integration harnesses are under `integration_test/`.
+- Mock helpers reside in `test/test_helpers/`.
+
+---
+
+## 📦 Tooling & Scripts
+- `scripts/fix_all_imports.sh` / `scripts/comprehensive_import_fix.sh`: repair package imports after moves.
+- `scripts/final_import_fixes.sh`: shortcut for CI-ready import cleanup.
+- `push_to_github.sh`, `run.sh`, and platform-specific launchers simplify common workflows.
+- `docs/DEPLOYMENT.md` plus `docs/TESTING_DEPLOYMENT_SUMMARY.md` cover release steps.
+
+---
+
+## 🧭 Documentation Map
+- [`docs/FINAL_DOCUMENTATION.md`](docs/FINAL_DOCUMENTATION.md) – end-to-end delivery summary.
+- [`docs/FEATURE_IMPLEMENTATION_SUMMARY.md`](docs/FEATURE_IMPLEMENTATION_SUMMARY.md) – phase notes per feature.
+- [`docs/INGREDIENT_LOGIC_AND_ADMIN_PANEL.md`](docs/INGREDIENT_LOGIC_AND_ADMIN_PANEL.md) – chef/admin domain deep dive.
+- [`docs/BACKEND_INTEGRATION_GUIDE.md`](docs/BACKEND_INTEGRATION_GUIDE.md) & [`docs/API_TECHNICAL_SPECIFICATIONS.md`](docs/API_TECHNICAL_SPECIFICATIONS.md) – API contracts.
+- [`docs/COMPREHENSIVE_TESTING_REPORT.md`](docs/COMPREHENSIVE_TESTING_REPORT.md) – QA evidence.
+
+---
+
+## 🤝 Contributing
+1. Create a feature branch and run `flutter format . && dart analyze`.
+2. Add/adjust tests near the code you touch.
+3. Use the scripts in `tool/` and `scripts/` to keep imports + CI happy.
+4. Open a PR referencing the relevant document or roadmap item.
+
+---
+
+FoodEx is production-ready across mobile, web, and desktop, and the repository is now free of deprecated `lib/view` artifacts. Build your feature inside `lib/features/*` or `lib/presentation/*`, lean on the shared design system, and ship great community-powered food experiences.  
+Bon appétit! 🇲🇦
 
 ## 🚀 Deployment
 

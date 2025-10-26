@@ -43,80 +43,74 @@ class _MainTabViewState extends State<MainTabView> {
           shape: const CircleBorder(),
           backgroundColor: selctTab == 2 ? TColor.primary : TColor.placeholder,
           child: Image.asset(
-            "assets/img/tab_home.png",
+            "assets/images/tab_home.png",
             width: 30,
             height: 30,
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        surfaceTintColor: TColor.white,
-        shadowColor: Colors.black,
-        elevation: 1,
-        notchMargin: 12,
-        height: 64,
-        shape: const CircularNotchedRectangle(),
-        child: SafeArea(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TabButton(
-                  title: "Menu",
-                  icon: "assets/img/tab_menu.png",
-                  onTap: () {
-                    if (selctTab != 0) {
-                      selctTab = 0;
-                      selectPageView = const MenuView();
-                    }
-                    if (mounted) {
-                      setState(() {});
-                    }
-                  },
-                  isSelected: selctTab == 0),
-              TabButton(
-                  title: "Offer",
-                  icon: "assets/img/tab_offer.png",
-                  onTap: () {
-                    if (selctTab != 1) {
-                      selctTab = 1;
-                      selectPageView = const OfferView();
-                    }
-                    if (mounted) {
-                      setState(() {});
-                    }
-                  },
-                  isSelected: selctTab == 1),
-        
-        
-                const  SizedBox(width: 40, height: 40, ),
-        
-              TabButton(
-                  title: "Profile",
-                  icon: "assets/img/tab_profile.png",
-                  onTap: () {
-                    if (selctTab != 3) {
-                      selctTab = 3;
-                      selectPageView = const ProfileView();
-                    }
-                    if (mounted) {
-                      setState(() {});
-                    }
-                  },
-                  isSelected: selctTab == 3),
-              TabButton(
-                  title: "More",
-                  icon: "assets/img/tab_more.png",
-                  onTap: () {
-                    if (selctTab != 4) {
-                      selctTab = 4;
-                      selectPageView = const  MoreView();
-                    }
-                    if (mounted) {
-                      setState(() {});
-                    }
-                  },
-                  isSelected: selctTab == 4),
-            ],
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child: BottomAppBar(
+            color: Colors.white.withOpacity(0.9),
+            elevation: 0,
+            notchMargin: 12,
+            height: 70,
+            shape: const CircularNotchedRectangle(),
+            child: SafeArea(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TabButton(
+                      title: "Menu",
+                      icon: "assets/images/tab_menu.png",
+                      onTap: () {
+                        if (selctTab != 0) {
+                          selctTab = 0;
+                          selectPageView = const MenuView();
+                        }
+                        if (mounted) setState(() {});
+                      },
+                      isSelected: selctTab == 0),
+                  TabButton(
+                      title: "Offer",
+                      icon: "assets/images/tab_offer.png",
+                      onTap: () {
+                        if (selctTab != 1) {
+                          selctTab = 1;
+                          selectPageView = const OfferView();
+                        }
+                        if (mounted) setState(() {});
+                      },
+                      isSelected: selctTab == 1),
+                  const SizedBox(width: 40),
+                  TabButton(
+                      title: "Profile",
+                      icon: "assets/images/tab_profile.png",
+                      onTap: () {
+                        if (selctTab != 3) {
+                          selctTab = 3;
+                          selectPageView = const ProfileView();
+                        }
+                        if (mounted) setState(() {});
+                      },
+                      isSelected: selctTab == 3),
+                  TabButton(
+                      title: "More",
+                      icon: "assets/images/tab_more.png",
+                      onTap: () {
+                        if (selctTab != 4) {
+                          selctTab = 4;
+                          selectPageView = const MoreView();
+                        }
+                        if (mounted) setState(() {});
+                      },
+                      isSelected: selctTab == 4),
+                ],
+              ),
+            ),
           ),
         ),
       ),

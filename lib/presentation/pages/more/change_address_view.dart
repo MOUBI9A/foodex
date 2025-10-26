@@ -44,7 +44,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
       child: Column(
         children: [
           Image.asset(
-            'assets/img/map_pin.png',
+            'assets/images/map_pin.png',
             width: 35,
             fit: BoxFit.contain,
           )
@@ -62,7 +62,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Image.asset("assets/img/btn_back.png", width: 20, height: 20),
+          icon: Image.asset("assets/images/btn_back.png", width: 20, height: 20),
         ),
         centerTitle: false,
         title: Text(
@@ -110,7 +110,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
             child: Row(children: [
-              Image.asset('assets/img/fav_icon.png', width: 35, height: 35),
+              Image.asset('assets/images/fav_icon.png', width: 35, height: 35),
               const SizedBox(
                 width: 8,
               ),
@@ -124,7 +124,7 @@ class _ChangeAddressViewState extends State<ChangeAddressView> {
                 ),
               ),
               Image.asset(
-                'assets/img/btn_next.png',
+                'assets/images/btn_next.png',
                 width: 15,
                 height: 15,
                 color: TColor.primaryText,

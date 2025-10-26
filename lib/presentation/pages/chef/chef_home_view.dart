@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:food_delivery/core/theme/color_extension.dart';
+import 'package:food_delivery/core/constants/routes.dart';
 
 class ChefHomeView extends StatefulWidget {
   const ChefHomeView({super.key});
@@ -8,7 +10,7 @@ class ChefHomeView extends StatefulWidget {
   State<ChefHomeView> createState() => _ChefHomeViewState();
 }
 
-class _ChefHomeViewState extends State<ChefHomeView> {
+class _ChefHomeViewState extends State<ChefHomeView> { 
   bool isKitchenOpen = false;
 
   @override
@@ -289,13 +291,13 @@ class _ChefHomeViewState extends State<ChefHomeView> {
                       ),
                       const SizedBox(height: 15),
                       _buildPopularDish("Chicken Biryani", "8 orders",
-                          "\$15.99", "assets/img/item_1.png"),
+                          "\$15.99", "assets/images/item_1.png"),
                       const SizedBox(height: 10),
                       _buildPopularDish("Homemade Pasta", "6 orders", "\$12.50",
-                          "assets/img/item_2.png"),
+                          "assets/images/item_2.png"),
                       const SizedBox(height: 10),
                       _buildPopularDish("Chocolate Cake", "4 orders", "\$8.99",
-                          "assets/img/dess_1.png"),
+                          "assets/images/dess_1.png"),
                     ],
                   ),
                 ),
@@ -341,7 +343,9 @@ class _ChefHomeViewState extends State<ChefHomeView> {
                         const SizedBox(width: 10),
                         Expanded(
                           child: _buildQuickAction(
-                              "Analytics", Icons.analytics, () {}),
+                              "Inventory", Icons.inventory_2, () {
+                                context.push(AppRouteNames.chefInventory);
+                              }),
                         ),
                       ],
                     ),

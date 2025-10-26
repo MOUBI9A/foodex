@@ -19,16 +19,17 @@ class ViewAllTitleRow extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.w800),
         ),
-        TextButton(
+        TextButton.icon(
           onPressed: onView,
-          child: Text(
+          icon: Icon(Icons.arrow_forward_ios, size: 14, color: TColor.primary),
+          label: Text(
             "View all",
             style: TextStyle(
                 color: TColor.primary,
                 fontSize: 13,
-                fontWeight: FontWeight.w500),
+                fontWeight: FontWeight.w600),
           ),
-        ),
+        )
       ],
     );
   }

@@ -25,11 +25,11 @@ class _WelcomeViewState extends State<WelcomeView> {
               alignment: Alignment.bottomCenter,
               children: [
                 Image.asset(
-                  "assets/img/welcome_top_shape.png",
+                  "assets/images/welcome_top_shape.png",
                   width: media.width,
                 ),
                 Image.asset(
-                  "assets/img/app_logo.png",
+                  "assets/images/app_logo.png",
                   width: media.width * 0.55,
                   height: media.width * 0.55,
                   fit: BoxFit.contain,

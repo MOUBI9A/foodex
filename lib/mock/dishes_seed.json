@@ -1,0 +1,58 @@
+{
+  "dishes": [
+    {
+      "id": "dish-001",
+      "name": "Chicken Tagine",
+      "description": "Poulet fermier, citrons confits et olives",
+      "chefId": "chef_001",
+      "price": 70.0,
+      "prepTime": 40,
+      "rating": 4.7,
+      "ingredients": [
+        {"ingredientId": "ing-002", "qty": 0.25},
+        {"ingredientId": "ing-001", "qty": 2},
+        {"ingredientId": "ing-005", "qty": 1}
+      ]
+    },
+    {
+      "id": "dish-002",
+      "name": "Moroccan Salad",
+      "description": "Tomates, carottes croquantes et cumin",
+      "chefId": "chef_002",
+      "price": 35.0,
+      "prepTime": 15,
+      "rating": 4.4,
+      "ingredients": [
+        {"ingredientId": "ing-001", "qty": 3},
+        {"ingredientId": "ing-003", "qty": 0.5}
+      ]
+    },
+    {
+      "id": "dish-003",
+      "name": "Veg Couscous",
+      "description": "Version végétarienne riche en légumes",
+      "chefId": "chef_003",
+      "price": 65.0,
+      "prepTime": 35,
+      "rating": 4.6,
+      "ingredients": [
+        {"ingredientId": "ing-001", "qty": 1},
+        {"ingredientId": "ing-003", "qty": 1},
+        {"ingredientId": "ing-004", "qty": 0.5}
+      ]
+    },
+    {
+      "id": "dish-004",
+      "name": "Beldi Pork Sandwich",
+      "description": "Pain croustillant et porc mariné",
+      "chefId": "chef_002",
+      "price": 55.0,
+      "prepTime": 20,
+      "rating": 4.1,
+      "ingredients": [
+        {"ingredientId": "ing-007", "qty": 0.2},
+        {"ingredientId": "ing-001", "qty": 1}
+      ]
+    }
+  ]
+}

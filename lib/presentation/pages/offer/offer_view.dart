@@ -17,7 +17,7 @@ class _OfferViewState extends State<OfferView> {
 
   List offerArr = [
     {
-      "image": "assets/img/offer_1.png",
+  "image": "assets/images/offer_1.png",
       "name": "Café de Noires",
       "rate": "4.9",
       "rating": "124",
@@ -25,7 +25,7 @@ class _OfferViewState extends State<OfferView> {
       "food_type": "Western Food"
     },
     {
-      "image": "assets/img/offer_2.png",
+  "image": "assets/images/offer_2.png",
       "name": "Isso",
       "rate": "4.9",
       "rating": "124",
@@ -33,7 +33,7 @@ class _OfferViewState extends State<OfferView> {
       "food_type": "Western Food"
     },
     {
-      "image": "assets/img/offer_3.png",
+  "image": "assets/images/offer_3.png",
       "name": "Cafe Beans",
       "rate": "4.9",
       "rating": "124",
@@ -41,7 +41,7 @@ class _OfferViewState extends State<OfferView> {
       "food_type": "Western Food"
     },
     {
-      "image": "assets/img/offer_1.png",
+  "image": "assets/images/offer_1.png",
       "name": "Café de Noires",
       "rate": "4.9",
       "rating": "124",
@@ -49,7 +49,7 @@ class _OfferViewState extends State<OfferView> {
       "food_type": "Western Food"
     },
     {
-      "image": "assets/img/offer_2.png",
+  "image": "assets/images/offer_2.png",
       "name": "Isso",
       "rate": "4.9",
       "rating": "124",
@@ -57,7 +57,7 @@ class _OfferViewState extends State<OfferView> {
       "food_type": "Western Food"
     },
     {
-      "image": "assets/img/offer_3.png",
+  "image": "assets/images/offer_3.png",
       "name": "Cafe Beans",
       "rate": "4.9",
       "rating": "124",
@@ -98,7 +98,7 @@ class _OfferViewState extends State<OfferView> {
                                 builder: (context) => const MyOrderView()));
                       },
                       icon: Image.asset(
-                        "assets/img/shopping_cart.png",
+                        "assets/images/shopping_cart.png",
                         width: 25,
                         height: 25,
                       ),
@@ -148,6 +148,7 @@ class _OfferViewState extends State<OfferView> {
                   );
                 }),
               ),
+              const SizedBox(height: 120),
             ],
           ),
         ),

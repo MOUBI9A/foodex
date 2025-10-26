@@ -56,7 +56,7 @@ class _ProfileViewState extends State<ProfileView> {
                             builder: (context) => const MyOrderView()));
                   },
                   icon: Image.asset(
-                    "assets/img/shopping_cart.png",
+                    "assets/images/shopping_cart.png",
                     width: 25,
                     height: 25,
                   ),
@@ -182,7 +182,7 @@ class _ProfileViewState extends State<ProfileView> {
             child: RoundButton(title: "Save", onPressed: () {}),
           ),
           const SizedBox(
-            height: 20,
+            height: 120,
           ),
         ]),
       ),

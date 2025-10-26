@@ -10,102 +10,95 @@ class RecentItemRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 12,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
       child: InkWell(
+        borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(14),
               child: Image.asset(
                 rObj["image"].toString(),
-                width: 70,
-                height: 70,
+                width: 74,
+                height: 74,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(
-              width: 8,
-            ),
-
+            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  
-                  
                   Text(
                     rObj["name"],
-                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        color: TColor.primaryText,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700),
+                      color: TColor.primaryText,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                  const SizedBox(
-                    height: 8,
+                  const SizedBox(height: 4),
+                  Text(
+                    '${rObj["type"]} • ${rObj["food_type"]}',
+                    style: TextStyle(
+                      color: TColor.secondaryText,
+                      fontSize: 12,
+                    ),
                   ),
+                  const SizedBox(height: 10),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      Icon(Icons.star, size: 14, color: Colors.amber[700]),
+                      const SizedBox(width: 6),
                       Text(
-                        rObj["type"],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: TColor.secondaryText, fontSize: 11),
-                      ),
-                      Text(
-                        " . ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: TColor.primary, fontSize: 11),
-                      ),
-                      Text(
-                        rObj["food_type"],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: TColor.secondaryText, fontSize: 12),
-                      ),
-                      
-                    ],
-                  ),
-                    const SizedBox(
-                    height: 4,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      
-                     
-                      Image.asset(
-                        "assets/img/rate.png",
-                        width: 10,
-                        height: 10,
-                        fit: BoxFit.cover,
-                      ),
-
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      Text(
-                        rObj["rate"],
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: TColor.primary, fontSize: 11),
-                      ),
-
-                       const SizedBox(
-                        width: 8,
-                      ),
-
-                      Text(
-                        "(${ rObj["rating"] } Ratings)",
-                        textAlign: TextAlign.center,
+                        '${rObj["rate"]} • ${rObj["rating"]} avis',
                         style: TextStyle(
-                            color: TColor.secondaryText, fontSize: 11),
+                          color: TColor.secondaryText,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
                 ],
               ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  rObj["price"] ?? '',
+                  style: TextStyle(
+                    color: TColor.primary,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                TextButton.icon(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: TColor.primary,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                    minimumSize: Size.zero,
+                  ),
+                  onPressed: onTap,
+                  icon: const Icon(Icons.add, size: 16),
+                  label: const Text('Add'),
+                ),
+              ],
             ),
           ],
         ),

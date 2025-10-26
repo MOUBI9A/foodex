@@ -43,7 +43,7 @@ class _CheckoutMessageViewState extends State<CheckoutMessageView> {
               ],
             ),
             Image.asset(
-              "assets/img/thank_you.png",
+              "assets/images/thank_you.png",
               width: media.width * 0.55,
             ),
             const SizedBox(

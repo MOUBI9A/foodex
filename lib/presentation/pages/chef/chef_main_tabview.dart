@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'chef_home_view.dart';
 import 'chef_menu_view.dart';
-import 'chef_orders_view.dart';
 import 'chef_earnings_view.dart';
 import 'chef_profile_view.dart';
 import 'package:food_delivery/presentation/widgets/tab_button.dart';
+import 'package:food_delivery/features/chef/screens/chef_orders_screen.dart';
 
 class ChefMainTabView extends StatefulWidget {
   const ChefMainTabView({super.key});
@@ -20,7 +20,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
   List<Widget> get pages => [
         const ChefHomeView(),
         const ChefMenuView(),
-        const ChefOrdersView(),
+        const ChefOrdersScreen(),
         const ChefEarningsView(),
         const ChefProfileView(),
       ];
@@ -60,7 +60,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
               children: [
                 TabButton(
                   title: "Home",
-                  icon: "assets/img/tab_home.png",
+                  icon: "assets/images/tab_home.png",
                   onTap: () {
                     setState(() {
                       selectTab = 0;
@@ -73,7 +73,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
                 ),
                 TabButton(
                   title: "Menu",
-                  icon: "assets/img/tab_menu.png",
+                  icon: "assets/images/tab_menu.png",
                   onTap: () {
                     setState(() {
                       selectTab = 1;
@@ -86,7 +86,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
                 ),
                 TabButton(
                   title: "Orders",
-                  icon: "assets/img/more_my_order.png",
+                  icon: "assets/images/more_my_order.png",
                   onTap: () {
                     setState(() {
                       selectTab = 2;
@@ -99,7 +99,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
                 ),
                 TabButton(
                   title: "Earnings",
-                  icon: "assets/img/more_payment.png",
+                  icon: "assets/images/more_payment.png",
                   onTap: () {
                     setState(() {
                       selectTab = 3;
@@ -112,7 +112,7 @@ class _ChefMainTabViewState extends State<ChefMainTabView> {
                 ),
                 TabButton(
                   title: "Profile",
-                  icon: "assets/img/tab_profile.png",
+                  icon: "assets/images/tab_profile.png",
                   onTap: () {
                     setState(() {
                       selectTab = 4;

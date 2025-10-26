@@ -94,7 +94,7 @@ class _InboxViewState extends State<InboxView> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Image.asset("assets/img/btn_back.png",
+                      icon: Image.asset("assets/images/btn_back.png",
                           width: 20, height: 20),
                     ),
                     const SizedBox(
@@ -117,7 +117,7 @@ class _InboxViewState extends State<InboxView> {
                                 builder: (context) => const MyOrderView()));
                       },
                       icon: Image.asset(
-                        "assets/img/shopping_cart.png",
+                        "assets/images/shopping_cart.png",
                         width: 25,
                         height: 25,
                       ),

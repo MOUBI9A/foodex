@@ -19,7 +19,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
 
   List menuItemsArr = [
     {
-      "image": "assets/img/dess_1.png",
+  "image": "assets/images/dess_1.png",
       "name": "French Apple Pie",
       "rate": "4.9",
       "rating": "124",
@@ -27,7 +27,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
       "food_type": "Desserts"
     },
     {
-      "image": "assets/img/dess_2.png",
+  "image": "assets/images/dess_2.png",
       "name": "Dark Chocolate Cake",
       "rate": "4.9",
       "rating": "124",
@@ -35,7 +35,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
       "food_type": "Desserts"
     },
     {
-      "image": "assets/img/dess_3.png",
+  "image": "assets/images/dess_3.png",
       "name": "Street Shake",
       "rate": "4.9",
       "rating": "124",
@@ -43,7 +43,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
       "food_type": "Desserts"
     },
     {
-      "image": "assets/img/dess_4.png",
+  "image": "assets/images/dess_4.png",
       "name": "Fudgy Chewy Brownies",
       "rate": "4.9",
       "rating": "124",
@@ -103,7 +103,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Image.asset("assets/img/btn_back.png",
+                      icon: Image.asset("assets/images/btn_back.png",
                           width: 20, height: 20),
                     ),
                     const SizedBox(
@@ -126,7 +126,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                                 builder: (context) => const MyOrderView()));
                       },
                       icon: Image.asset(
-                        "assets/img/shopping_cart.png",
+                        "assets/images/shopping_cart.png",
                         width: 25,
                         height: 25,
                       ),
@@ -146,7 +146,7 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                     alignment: Alignment.center,
                     width: 30,
                     child: Image.asset(
-                      "assets/img/search.png",
+                      "assets/images/search.png",
                       width: 20,
                       height: 20,
                     ),

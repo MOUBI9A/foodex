@@ -9,6 +9,7 @@ class RoundTextfield extends StatelessWidget {
   final bool obscureText;
   final Color? bgColor;
   final Widget? left;
+  final double? hintFontSize;
 
   const RoundTextfield(
       {super.key,
@@ -17,6 +18,7 @@ class RoundTextfield extends StatelessWidget {
       this.keyboardType,
       this.bgColor,
       this.left,
+      this.hintFontSize,
       this.obscureText = false});
 
   @override
@@ -47,7 +49,7 @@ class RoundTextfield extends StatelessWidget {
                 hintText: hintText,
                 hintStyle: TextStyle(
                     color: TColor.placeholder,
-                    fontSize: 14,
+                    fontSize: hintFontSize ?? 14,
                     fontWeight: FontWeight.w500),
               ),
             ),

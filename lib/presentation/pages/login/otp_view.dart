@@ -168,7 +168,6 @@ class _OTPViewState extends State<OTPView> {
     );
   }
 
-   //TODO: Action
   void btnSubmit() {
     if (code.length != 6) {
       mdShowAlert(Globs.appName, MSG.enterCode, () {});
@@ -179,8 +178,6 @@ class _OTPViewState extends State<OTPView> {
 
     serviceCallForgotVerify({"email": widget.email, "reset_code": code});
   }
-
-  //TODO: ServiceCall
 
   void serviceCallForgotVerify(Map<String, dynamic> parameter) {
     Globs.showHUD();

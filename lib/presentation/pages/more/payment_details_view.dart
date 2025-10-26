@@ -16,7 +16,7 @@ class PaymentDetailsView extends StatefulWidget {
 class _PaymentDetailsViewState extends State<PaymentDetailsView> {
   List cardArr = [
     {
-      "icon": "assets/img/visa_icon.png",
+  "icon": "assets/images/visa_icon.png",
       "card": "**** **** **** 2187",
     }
   ];
@@ -41,7 +41,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Image.asset("assets/img/btn_back.png",
+                      icon: Image.asset("assets/images/btn_back.png",
                           width: 20, height: 20),
                     ),
                     const SizedBox(
@@ -64,7 +64,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                                 builder: (context) => const MyOrderView()));
                       },
                       icon: Image.asset(
-                        "assets/img/shopping_cart.png",
+                        "assets/images/shopping_cart.png",
                         width: 25,
                         height: 25,
                       ),
@@ -118,7 +118,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                                 fontWeight: FontWeight.w700),
                           ),
                           Image.asset(
-                            "assets/img/check.png",
+                            "assets/images/check.png",
                             width: 20,
                             height: 20,
                           ),
@@ -213,7 +213,7 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: RoundIconButton(
                     title: "Add Another Credit/Debit Card",
-                    icon: "assets/img/add.png",
+                    icon: "assets/images/add.png",
                     color: TColor.primary,
                     fontSize: 16,
                     onPressed: () {

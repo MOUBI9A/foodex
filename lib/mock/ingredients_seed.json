@@ -1,0 +1,11 @@
+{
+  "ingredients": [
+    {"id": "ing-001", "name": "Tomato", "unit": "pcs", "qty": 30, "threshold": 5, "expiryDate": "2025-12-31", "category": "Vegetable", "storageType": "dry", "freshnessScore": 90, "cost": 0.5},
+    {"id": "ing-002", "name": "Chicken Breast", "unit": "kg", "qty": 8, "threshold": 2, "expiryDate": "2025-11-15", "category": "Meat", "storageType": "fridge", "freshnessScore": 82, "cost": 5.0},
+    {"id": "ing-003", "name": "Carrot", "unit": "kg", "qty": 6, "threshold": 1, "expiryDate": "2025-12-10", "category": "Vegetable", "storageType": "fridge", "freshnessScore": 88, "cost": 2.2},
+    {"id": "ing-004", "name": "Chickpeas", "unit": "kg", "qty": 4, "threshold": 1, "expiryDate": "2025-09-01", "category": "Dry Goods", "storageType": "dry", "freshnessScore": 79, "cost": 3.1},
+    {"id": "ing-005", "name": "Preserved Lemon", "unit": "pcs", "qty": 20, "threshold": 5, "expiryDate": "2025-10-18", "category": "Condiment", "storageType": "dry", "freshnessScore": 70, "cost": 1.0},
+    {"id": "ing-006", "name": "Lamb Shoulder", "unit": "kg", "qty": 2, "threshold": 1, "expiryDate": "2024-12-05", "category": "Meat", "storageType": "fridge", "freshnessScore": 62, "cost": 9.5},
+    {"id": "ing-007", "name": "Pork Belly", "unit": "kg", "qty": 1.5, "threshold": 1, "expiryDate": "2024-11-22", "category": "Meat", "storageType": "fridge", "freshnessScore": 55, "cost": 7.5}
+  ]
+}

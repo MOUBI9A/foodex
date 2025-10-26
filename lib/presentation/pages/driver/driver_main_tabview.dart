@@ -58,7 +58,7 @@ class _DriverMainTabViewState extends State<DriverMainTabView> {
               children: [
                 TabButton(
                   title: "Home",
-                  icon: "assets/img/tab_home.png",
+                  icon: "assets/images/tab_home.png",
                   onTap: () {
                     setState(() {
                       selectTab = 0;
@@ -71,7 +71,7 @@ class _DriverMainTabViewState extends State<DriverMainTabView> {
                 ),
                 TabButton(
                   title: "Orders",
-                  icon: "assets/img/more_my_order.png",
+                  icon: "assets/images/more_my_order.png",
                   onTap: () {
                     setState(() {
                       selectTab = 1;
@@ -84,7 +84,7 @@ class _DriverMainTabViewState extends State<DriverMainTabView> {
                 ),
                 TabButton(
                   title: "Earnings",
-                  icon: "assets/img/more_payment.png",
+                  icon: "assets/images/more_payment.png",
                   onTap: () {
                     setState(() {
                       selectTab = 2;
@@ -97,7 +97,7 @@ class _DriverMainTabViewState extends State<DriverMainTabView> {
                 ),
                 TabButton(
                   title: "Profile",
-                  icon: "assets/img/tab_profile.png",
+                  icon: "assets/images/tab_profile.png",
                   onTap: () {
                     setState(() {
                       selectTab = 3;

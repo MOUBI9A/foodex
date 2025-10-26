@@ -6,28 +6,31 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:food_delivery/main.dart';
 import 'package:food_delivery/core/utils/locator.dart';
-import 'package:food_delivery/presentation/pages/user_type_selector_view.dart';
+import 'test_helpers/mock_path_provider.dart';
 
 void main() {
   // Setup services for testing
-  setUpAll(() {
+  setUpAll(() async {
     setUpLocator();
+    await setUpMockPathProvider();
   });
 
   testWidgets('FoodEx App Widget Test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp(defaultHome: UserTypeSelectorView()));
+    await tester.pumpWidget(const ProviderScope(child: FoodExApp()));
+
+    // Allow router to settle
+    await tester.pumpAndSettle();
 
     // Verify that the user type selector loads with correct text
     expect(find.text('Customer'), findsOneWidget);
     expect(find.text('Home Chef'), findsOneWidget);
     expect(find.text('Courier'), findsOneWidget);
     expect(
-        find.text(
-            'Community-driven food marketplace\nConnect with local home chefs'),
-        findsOneWidget);
+        find.text('Your local home-chef marketplace'), findsOneWidget);
   });
 }

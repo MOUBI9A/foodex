@@ -55,7 +55,7 @@ class MenuItemRow extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Image.asset(
-                            "assets/img/rate.png",
+                            "assets/images/rate.png",
                             width: 10,
                             height: 10,
                             fit: BoxFit.cover,

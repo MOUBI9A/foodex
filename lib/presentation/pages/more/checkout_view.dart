@@ -14,9 +14,9 @@ class CheckoutView extends StatefulWidget {
 
 class _CheckoutViewState extends State<CheckoutView> {
   List paymentArr = [
-    {"name": "Cash on delivery", "icon": "assets/img/cash.png"},
-    {"name": "**** **** **** 2187", "icon": "assets/img/visa_icon.png"},
-    {"name": "test@gmail.com", "icon": "assets/img/paypal.png"},
+  {"name": "Cash on delivery", "icon": "assets/images/cash.png"},
+  {"name": "**** **** **** 2187", "icon": "assets/images/visa_icon.png"},
+  {"name": "test@gmail.com", "icon": "assets/images/paypal.png"},
   ];
 
   int selectMethod = -1;
@@ -42,7 +42,7 @@ class _CheckoutViewState extends State<CheckoutView> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Image.asset("assets/img/btn_back.png",
+                      icon: Image.asset("assets/images/btn_back.png",
                           width: 20, height: 20),
                     ),
                     const SizedBox(

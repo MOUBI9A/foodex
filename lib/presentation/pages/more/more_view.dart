@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:food_delivery/presentation/pages/more/about_us_view.dart';
 import 'package:food_delivery/presentation/pages/more/inbox_view.dart';
 import 'package:food_delivery/presentation/pages/more/payment_details_view.dart';
 import 'package:food_delivery/presentation/pages/wallet/wallet_view.dart';
+import 'package:food_delivery/core/constants/routes.dart';
 
 import 'package:food_delivery/core/theme/color_extension.dart';
 import 'package:food_delivery/core/network/service_call.dart';
@@ -21,43 +23,61 @@ class _MoreViewState extends State<MoreView> {
     {
       "index": "1",
       "name": "My Wallet",
-      "image": "assets/img/more_payment.png",
+  "image": "assets/images/more_payment.png",
       "base": 0
     },
     {
       "index": "2",
       "name": "Payment Details",
-      "image": "assets/img/more_payment.png",
+  "image": "assets/images/more_payment.png",
       "base": 0
     },
     {
       "index": "3",
       "name": "My Orders",
-      "image": "assets/img/more_my_order.png",
+  "image": "assets/images/more_my_order.png",
       "base": 0
     },
     {
       "index": "4",
       "name": "Notifications",
-      "image": "assets/img/more_notification.png",
+  "image": "assets/images/more_notification.png",
       "base": 15
     },
     {
       "index": "5",
       "name": "Inbox",
-      "image": "assets/img/more_inbox.png",
+  "image": "assets/images/more_inbox.png",
       "base": 0
     },
     {
       "index": "6",
       "name": "About Us",
-      "image": "assets/img/more_info.png",
+  "image": "assets/images/more_info.png",
       "base": 0
     },
     {
-      "index": "6",
+      "index": "7",
+      "name": "Taste Profile",
+      "image": "assets/images/more_info.png",
+      "base": 0
+    },
+    {
+      "index": "8",
+      "name": "Recommendations",
+      "image": "assets/images/more_info.png",
+      "base": 0
+    },
+    {
+      "index": "9",
+      "name": "Suivi en direct",
+      "image": "assets/images/more_info.png",
+      "base": 0
+    },
+    {
+      "index": "10",
       "name": "Logout",
-      "image": "assets/img/more_info.png",
+      "image": "assets/images/more_info.png",
       "base": 0
     },
   ];
@@ -94,7 +114,7 @@ class _MoreViewState extends State<MoreView> {
                                 builder: (context) => const MyOrderView()));
                       },
                       icon: Image.asset(
-                        "assets/img/shopping_cart.png",
+                        "assets/images/shopping_cart.png",
                         width: 25,
                         height: 25,
                       ),
@@ -134,24 +154,38 @@ class _MoreViewState extends State<MoreView> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const MyOrderView()));
+                            break;
                           case "4":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const NotificationsView()));
+                            break;
                           case "5":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const InboxView()));
+                            break;
                           case "6":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const AboutUsView()));
+                            break;
                           case "7":
+                            context.push(AppRouteNames.customerTasteProfile);
+                            break;
+                          case "8":
+                            context.push(AppRouteNames.customerRecommendations);
+                            break;
+                          case "9":
+                            context.push(AppRouteNames.customerOrderTracking);
+                            break;
+                          case "10":
                             ServiceCall.logout();
+                            break;
 
                           default:
                         }
@@ -228,7 +262,7 @@ class _MoreViewState extends State<MoreView> {
                               decoration: BoxDecoration(
                                   color: TColor.textfield,
                                   borderRadius: BorderRadius.circular(15)),
-                              child: Image.asset("assets/img/btn_next.png",
+                              child: Image.asset("assets/images/btn_next.png",
                                   width: 10,
                                   height: 10,
                                   color: TColor.primaryText),
@@ -237,7 +271,8 @@ class _MoreViewState extends State<MoreView> {
                         ),
                       ),
                     );
-                  })
+                  }),
+              const SizedBox(height: 120),
             ],
           ),
         ),

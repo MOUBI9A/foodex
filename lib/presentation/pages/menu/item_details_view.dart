@@ -26,7 +26,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
         alignment: Alignment.topCenter,
         children: [
           Image.asset(
-            "assets/img/detail_top.png",
+            "assets/images/detail_top.png",
             width: media.width,
             height: media.width,
             fit: BoxFit.cover,
@@ -457,7 +457,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                                                     child: RoundIconButton(
                                                         title: "Add to Cart",
                                                         icon:
-                                                            "assets/img/shopping_add.png",
+                                                            "assets/images/shopping_add.png",
                                                         color: TColor.primary,
                                                         onPressed: () {}),
                                                   )
@@ -487,7 +487,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                                                   ]),
                                               alignment: Alignment.center,
                                               child: Image.asset(
-                                                  "assets/img/shopping_cart.png",
+                                                  "assets/images/shopping_cart.png",
                                                   width: 20,
                                                   height: 20,
                                                   color: TColor.primary),
@@ -520,8 +520,8 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                         },
                         child: Image.asset(
                             isFav
-                                ? "assets/img/favorites_btn.png"
-                                : "assets/img/favorites_btn_2.png",
+                                ? "assets/images/favorites_btn.png"
+                                : "assets/images/favorites_btn_2.png",
                             width: 70,
                             height: 70)),
                   ),
@@ -546,7 +546,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                           Navigator.pop(context);
                         },
                         icon: Image.asset(
-                          "assets/img/btn_back.png",
+                          "assets/images/btn_back.png",
                           width: 20,
                           height: 20,
                           color: TColor.white,
@@ -560,7 +560,7 @@ class _ItemDetailsViewState extends State<ItemDetailsView> {
                                   builder: (context) => const MyOrderView()));
                         },
                         icon: Image.asset(
-                          "assets/img/shopping_cart.png",
+                          "assets/images/shopping_cart.png",
                           width: 25,
                           height: 25,
                           color: TColor.white,

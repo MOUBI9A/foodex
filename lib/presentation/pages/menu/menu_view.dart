@@ -216,7 +216,8 @@ class _MenuViewState extends State<MenuView> {
                             ],
                           ),
                         );
-                      }))
+                      })),
+                  const SizedBox(height: 120),
                 ],
               ),
             ),

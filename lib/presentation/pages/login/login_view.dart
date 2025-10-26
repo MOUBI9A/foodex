@@ -106,7 +106,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 30,
               ),
               RoundIconButton(
-                icon: "assets/img/facebook_logo.png",
+                icon: "assets/images/facebook_logo.png",
                 title: "Login with Facebook",
                 color: const Color(0xff367FC0),
                 onPressed: () {},
@@ -115,7 +115,7 @@ class _LoginViewState extends State<LoginView> {
                 height: 25,
               ),
               RoundIconButton(
-                icon: "assets/img/google_logo.png",
+                icon: "assets/images/google_logo.png",
                 title: "Login with Google",
                 color: const Color(0xffDD4B39),
                 onPressed: () {},
@@ -159,7 +159,6 @@ class _LoginViewState extends State<LoginView> {
     );
   }
 
-  //TODO: Action
   void btnLogin() {
     if (!txtEmail.text.isEmail) {
       mdShowAlert(Globs.appName, MSG.enterEmail, () {});
@@ -179,8 +178,6 @@ class _LoginViewState extends State<LoginView> {
       "push_token": ""
     });
   }
-
-  //TODO: ServiceCall
 
   void serviceCallLogin(Map<String, dynamic> parameter) {
     Globs.showHUD();
