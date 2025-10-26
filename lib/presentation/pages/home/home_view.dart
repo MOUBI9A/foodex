@@ -774,7 +774,7 @@ class _HomeViewState extends State<HomeView>
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 260,
+          height: MediaQuery.of(context).size.height * 0.32, // 32% of screen height
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -886,7 +886,7 @@ class _HomeViewState extends State<HomeView>
         ),
         const SizedBox(height: 16),
         SizedBox(
-          height: 240,
+          height: MediaQuery.of(context).size.height * 0.29, // 29% of screen height
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             scrollDirection: Axis.horizontal,
